@@ -42,6 +42,23 @@ Adding a lead is: write one new file in `leads/`, open a pull request,
 Betsy reviews and merges. That's the same human-glance-before-publish gate
 the underlying project requires for any AI-generated content going outward.
 
+## The promotion routine
+
+New leads mostly arrive here via an automated daily routine, not by hand.
+Once a day it reads every contributor's `ledger/*/surviving.md` in the
+parent project, decides which newly-seen entries are worth promoting
+(real sources, real verification, a concrete next check — see
+`promotion-state.json` for exactly what's been considered and why), and
+opens a PR here with any it selects. "Nothing new" is a normal, correctly
+logged outcome, not a failure — see `PROMOTION-LOG.md` for the run-by-run
+record. Every PR it opens still needs Betsy's merge before anything goes
+live; the routine proposes, it doesn't publish on its own.
+
+`promotion-state.json` is the dedup/decision ledger (don't hand-edit —
+it's written by the routine) and `PROMOTION-LOG.md` is the human-readable
+run log. Scoped to `surviving.md` only for now; `rejected.md` mirroring
+is a reasonable future extension, not yet built.
+
 ## Status values
 
 - `open` — survived verification, not yet independently resolved.
