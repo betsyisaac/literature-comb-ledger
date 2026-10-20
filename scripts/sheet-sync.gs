@@ -26,6 +26,8 @@
 
 const SPREADSHEET_ID = '1O1VpsQtWpyYNiLdzt0Tsem2LTMZH0mQHgFUCakVUXNc';
 const SHEET_NAME = 'Leads';
+const INFO_SHEET_NAME = 'Project Info';
+const INFO_LAST_UPDATED_CELL = 'B4';
 const CSV_URL = 'https://raw.githubusercontent.com/betsyisaac/literature-comb-ledger/main/leads.csv';
 
 function refreshLeads() {
@@ -72,6 +74,17 @@ function refreshLeads() {
 
   for (let c = 1; c <= numCols; c++) {
     sheet.autoResizeColumn(c);
+  }
+
+  // Stamp "Last updated" on the Project Info tab. This only means
+  // "the last time this sync ran" — but since the sync is triggered
+  // by leads.csv actually having changed (the GitHub Action only
+  // commits index.md/leads.csv when the diff is non-empty), in
+  // practice it tracks real data changes, not just a heartbeat.
+  const infoSheet = ss.getSheetByName(INFO_SHEET_NAME);
+  if (infoSheet) {
+    infoSheet.getRange(INFO_LAST_UPDATED_CELL)
+      .setValue(Utilities.formatDate(new Date(), 'UTC', 'yyyy-MM-dd HH:mm') + ' UTC');
   }
 }
 

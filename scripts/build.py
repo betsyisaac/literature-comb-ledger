@@ -34,6 +34,7 @@ Every frontmatter value must fit on one line. The body (after the second
 `---`) can be as long as you like — that's where the real prose lives.
 """
 import csv
+import datetime
 import pathlib
 import sys
 
@@ -134,6 +135,7 @@ def build_index_md(leads: list[dict]) -> str:
     )
     lines.append("| Field | |")
     lines.append("|---|---|")
+    lines.append(f"| Last updated | {datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%d %H:%M UTC')} |")
     lines.append("| Maintainer | [@betsyisaac](https://github.com/betsyisaac) |")
     lines.append("| Per-contributor source ledgers | https://github.com/bambamramfan/literature-comb |")
     lines.append("| Project spec | https://github.com/bambamramfan/literature-comb/blob/main/SHARED-ROUTINE.md |")
