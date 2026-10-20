@@ -1,1 +1,58 @@
-{}
+{
+  "bambamramfan:2026-10-16:erdos-open": {
+    "outcome": "promoted",
+    "lc_id": "LC-0001",
+    "date_checked": "2026-10-20"
+  },
+  "bambamramfan:2026-10-16:cauris": {
+    "outcome": "promoted",
+    "lc_id": "LC-0002",
+    "date_checked": "2026-10-20"
+  },
+  "bambamramfan:2026-10-19:cauris:pyrrolnitrin": {
+    "outcome": "promoted",
+    "lc_id": "LC-0003",
+    "date_checked": "2026-10-20",
+    "note": "Two entries on 2026-10-19 share the target slug 'cauris'; disambiguated by subject keyword in the fingerprint."
+  },
+  "bambamramfan:2026-10-19:cauris:azasteroid": {
+    "outcome": "skipped",
+    "reason": "Source entry explicitly labels itself 'Recorded as weak, not promoted'; 2 of 3 verifiers flagged the primary 1979 Ustilago source as undercutting the bridge (azasteroid cross-tolerance with triarimol is most plausibly efflux-mediated, the same C. auris mechanism the bridge dismisses).",
+    "date_checked": "2026-10-20"
+  },
+  "bambamramfan:2026-10-20:cacao-cadmium": {
+    "outcome": "promoted",
+    "lc_id": "LC-0004",
+    "date_checked": "2026-10-20"
+  },
+  "bambamramfan:2026-10-20:apple-replant-etiology": {
+    "outcome": "skipped",
+    "reason": "Source entry is explicit that the lead's headline framing is false (all three verifiers said so: benzoic-acid autotoxicity and prunasin/cyanide are already treated as one pathway) and labels itself 'Recorded as WEAK, not promoted'.",
+    "date_checked": "2026-10-20"
+  },
+  "bambamramfan:2026-10-20:secondary-al-iron": {
+    "outcome": "skipped",
+    "reason": "All three source-side verifiers caught a physics error in the lead (beta-AlFeSi is not buoyant; the proposed classifier would export iron into the product, not out); source labels the entry WEAK and recommends dropping the classifier framing.",
+    "date_checked": "2026-10-20"
+  },
+  "bambamramfan:2026-10-20:konzo-neurotoxin": {
+    "outcome": "skipped",
+    "reason": "Scores 4/3/2 (below the source's own 6 threshold); verifiers flagged phenotype mismatch (BCA causes acute convulsive seizures, konzo is chronic non-convulsive spastic paraparesis) and backwards stoichiometry (the accepted sulfur-amino-acid-deficiency cofactor is substrate-limiting for BCA formation, so it would suppress rather than drive the proposed toxin). Source labels it a WEAK SURVIVOR.",
+    "date_checked": "2026-10-20"
+  },
+  "bambamramfan:2026-10-20:inp-secondary-ice": {
+    "outcome": "promoted",
+    "lc_id": "LC-0005",
+    "date_checked": "2026-10-20"
+  },
+  "bambamramfan:2026-10-20:zhf_core_temp_transient_deconvolution": {
+    "outcome": "skipped",
+    "reason": "Below source's own 6 threshold (5/5/4); all three verifiers flagged primary_source_undercuts_lead — the identification procedure the lead attributes to the source is not actually in the source, and the source itself says tau is instrument-AND-sample-dependent, which partly vindicates the physiological attribution the lead means to displace.",
+    "date_checked": "2026-10-20"
+  },
+  "bambamramfan:2026-10-20:lpbf-in-process-distortion-control": {
+    "outcome": "skipped",
+    "reason": "Specific novelty claim is false as written (verifier found Wu et al. 2019 Sci Technol Weld Join evaluating Ti-6Al-4V wire-arc residual stress against cooling-source distance, and PAS 6012:2020 already covers melt-pool-localised cooling); below the source's own 6 threshold (5/5/3) with both non-refuting verifiers attacking novelty.",
+    "date_checked": "2026-10-20"
+  }
+}
