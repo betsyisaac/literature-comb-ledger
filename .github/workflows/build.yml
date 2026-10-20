@@ -1,0 +1,39 @@
+name: Rebuild index.md and leads.csv
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "leads/**"
+      - "scripts/build.py"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Build index.md and leads.csv
+        run: python3 scripts/build.py
+
+      - name: Commit regenerated files if changed
+        run: |
+          git config user.name "literature-comb-ledger-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if ! git diff --quiet -- index.md leads.csv; then
+            git add index.md leads.csv
+            git commit -m "chore: regenerate index.md and leads.csv [skip ci]"
+            git push
+          else
+            echo "No changes to index.md or leads.csv"
+          fi
