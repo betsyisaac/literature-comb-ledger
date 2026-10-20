@@ -99,8 +99,21 @@ def load_all_leads() -> list[dict]:
     return ordered
 
 
+def flatten(text: str) -> str:
+    """Collapse all whitespace (including newlines) to single spaces.
+
+    Used for leads.csv specifically: some CSV consumers (notably Google
+    Apps Script's Utilities.parseCsv) mis-parse fields containing literal
+    line breaks even when properly quoted per RFC 4180. Keeping the CSV
+    strictly one-line-per-record sidesteps that entirely. index.md and
+    the individual leads/*.md files keep the real multi-paragraph prose —
+    only the flat CSV gets this treatment.
+    """
+    return " ".join(text.split())
+
+
 def truncate(text: str, n: int = 160) -> str:
-    text = " ".join(text.split())
+    text = flatten(text)
     if len(text) <= n:
         return text
     return text[: n - 1].rstrip() + "…"
@@ -161,11 +174,11 @@ def build_leads_csv(leads: list[dict]) -> str:
             lead.get("id", ""),
             lead.get("date_added", ""),
             lead.get("status", ""),
-            lead.get("headline", ""),
-            lead.get("old_source", ""),
-            lead.get("modern_problem", ""),
-            lead.get("cheapest_check", ""),
-            lead.get("_body", ""),
+            flatten(lead.get("headline", "")),
+            flatten(lead.get("old_source", "")),
+            flatten(lead.get("modern_problem", "")),
+            flatten(lead.get("cheapest_check", "")),
+            flatten(lead.get("_body", "")),
         ])
     return buf.getvalue()
 
