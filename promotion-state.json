@@ -4,7 +4,10 @@
     "outcome": "promoted",
     "lc_id": "LC-0001",
     "date_checked": "2026-10-20",
-    "body_sha256": "14d54217ff429d66d889ef486ed149599aeaaa87a285a7ab7bbd6bf18db538b1"
+    "body_sha256": "a1bedec456d02f54852f58c69bcf869a8183c9eadc02a10e34b10ed36b96b759",
+    "notes": [
+      "2026-10-20: upstream retracted; LC-0001 flipped to rejected"
+    ]
   },
   "bambamramfan:2026-10-16 | cauris | score 6.5 | DESTINATION: undecided": {
     "outcome": "promoted",
@@ -66,5 +69,5 @@
     "date_checked": "2026-10-20",
     "body_sha256": "818d3388857ce0c51bdfdabfd6d45f29aba57337dd4a328e3ac716d2d539d006"
   },
-  "_last_upstream_commit": "3531ef111698512ec0047b38ba52c6fd9ffa2831"
+  "_last_upstream_commit": "66575dc0f0f3924b23f2dec78ab479725d910f57"
 }
