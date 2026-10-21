@@ -30,6 +30,13 @@ const INFO_SHEET_NAME = 'Project Info';
 const INFO_LAST_UPDATED_CELL = 'B4';
 const CSV_URL = 'https://raw.githubusercontent.com/betsyisaac/literature-comb-ledger/main/leads.csv';
 
+// Shared secret for the reply endpoint (doPost, bottom of file). LEFT EMPTY
+// IN THE PUBLIC REPO ON PURPOSE: the copy pasted into Apps Script has the
+// real value filled in, generated locally and never committed. Empty here
+// means the endpoint refuses everything.
+const REPLY_SECRET = '';
+const AGENT_LABEL = '[automated maintenance agent for this sheet]';
+
 function refreshLeads() {
   const response = UrlFetchApp.fetch(CSV_URL, { muteHttpExceptions: true });
   if (response.getResponseCode() !== 200) {
@@ -146,4 +153,35 @@ function doGet(e) {
 // the output in the execution log before deploying.
 function testCommentFeed() {
   Logger.log(doGet().getContent().slice(0, 2000));
+}
+
+// ---------------------------------------------------------------------
+// REPLY ENDPOINT for the promotion agent (Betsy, 2026-10-20: "just use my
+// normal email and identify yourself"). Replies post under Betsy's account,
+// so EVERY reply is forced to start with AGENT_LABEL. Locked with
+// REPLY_SECRET; can only add a reply to an existing thread on this one sheet.
+// It cannot create top-level comments, edit, delete, or resolve anything.
+// ---------------------------------------------------------------------
+function doPost(e) {
+  const out = function (o) {
+    return ContentService.createTextOutput(JSON.stringify(o)).setMimeType(ContentService.MimeType.JSON);
+  };
+  if (!REPLY_SECRET) return out({ ok: false, error: 'REPLY_SECRET not set in this copy' });
+  let body;
+  try { body = JSON.parse(e.postData.contents); } catch (err) { return out({ ok: false, error: 'bad json' }); }
+  if (String(body.secret || '').trim() !== REPLY_SECRET) return out({ ok: false, error: 'unauthorized' });
+  if (body.ping) return out({ ok: true, pong: true });
+
+  const commentId = String(body.comment_id || '');
+  let text = String(body.text || '').trim();
+  if (!commentId || !text) return out({ ok: false, error: 'missing comment_id or text' });
+  if (text.length > 3000) return out({ ok: false, error: 'too long' });
+  if (text.indexOf(AGENT_LABEL) !== 0) text = AGENT_LABEL + ' ' + text;
+  try {
+    const reply = Drive.Replies.create({ content: text }, SPREADSHEET_ID, commentId,
+                                       { fields: 'id,createdTime,content' });
+    return out({ ok: true, reply: reply });
+  } catch (err) {
+    return out({ ok: false, error: String(err) });
+  }
 }
