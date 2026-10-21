@@ -156,11 +156,15 @@ function testCommentFeed() {
 }
 
 // ---------------------------------------------------------------------
-// REPLY ENDPOINT for the promotion agent (Betsy, 2026-10-20: "just use my
-// normal email and identify yourself"). Replies post under Betsy's account,
-// so EVERY reply is forced to start with AGENT_LABEL. Locked with
-// REPLY_SECRET; can only add a reply to an existing thread on this one sheet.
-// It cannot create top-level comments, edit, delete, or resolve anything.
+// AGENT ENDPOINT for the promotion agent (Betsy, 2026-10-20: "just use my
+// normal email and identify yourself"). Everything posts under Betsy's
+// account, so EVERY reply or new thread is forced to start with AGENT_LABEL.
+// Locked with REPLY_SECRET. Scope: this one sheet only. Actions:
+//   reply       (default) add a reply to an existing thread
+//   resolve     resolve an existing thread (optional short labelled note)
+//   new_thread  start a new, sheet-level comment thread
+// There is deliberately NO delete action: deleting comments is permanent,
+// and the agent doesn't do permanent deletions. Betsy deletes by hand.
 // ---------------------------------------------------------------------
 function doPost(e) {
   const out = function (o) {
@@ -170,17 +174,36 @@ function doPost(e) {
   let body;
   try { body = JSON.parse(e.postData.contents); } catch (err) { return out({ ok: false, error: 'bad json' }); }
   if (String(body.secret || '').trim() !== REPLY_SECRET) return out({ ok: false, error: 'unauthorized' });
-  if (body.ping) return out({ ok: true, pong: true });
+  if (body.ping) return out({ ok: true, pong: true, actions: ['reply', 'resolve', 'new_thread'] });
 
+  const action = String(body.action || 'reply');
   const commentId = String(body.comment_id || '');
   let text = String(body.text || '').trim();
-  if (!commentId || !text) return out({ ok: false, error: 'missing comment_id or text' });
   if (text.length > 3000) return out({ ok: false, error: 'too long' });
-  if (text.indexOf(AGENT_LABEL) !== 0) text = AGENT_LABEL + ' ' + text;
+  const label = function (s) { return s.indexOf(AGENT_LABEL) === 0 ? s : AGENT_LABEL + ' ' + s; };
+
   try {
-    const reply = Drive.Replies.create({ content: text }, SPREADSHEET_ID, commentId,
-                                       { fields: 'id,createdTime,content' });
-    return out({ ok: true, reply: reply });
+    if (action === 'reply') {
+      if (!commentId || !text) return out({ ok: false, error: 'missing comment_id or text' });
+      const reply = Drive.Replies.create({ content: label(text) }, SPREADSHEET_ID, commentId,
+                                         { fields: 'id,createdTime,content' });
+      return out({ ok: true, action: action, reply: reply });
+    }
+    if (action === 'resolve') {
+      if (!commentId) return out({ ok: false, error: 'missing comment_id' });
+      const res = { action: 'resolve' };
+      if (text) res.content = label(text);
+      const reply = Drive.Replies.create(res, SPREADSHEET_ID, commentId,
+                                         { fields: 'id,createdTime,content,action' });
+      return out({ ok: true, action: action, reply: reply });
+    }
+    if (action === 'new_thread') {
+      if (!text) return out({ ok: false, error: 'missing text' });
+      const c = Drive.Comments.create({ content: label(text) }, SPREADSHEET_ID,
+                                      { fields: 'id,createdTime,content,anchor' });
+      return out({ ok: true, action: action, comment: c });
+    }
+    return out({ ok: false, error: 'unknown action: ' + action });
   } catch (err) {
     return out({ ok: false, error: String(err) });
   }
