@@ -34,3 +34,32 @@ Note on fingerprint format: two entries on 2026-10-19 shared target slug
 scheme. Disambiguated by appending a subject keyword
 (`:pyrrolnitrin` / `:azasteroid`). Flagging in case the fingerprint spec
 needs tightening upstream.
+
+---
+
+## 2026-10-20 (session 68e1329a)
+
+Read 1 contributor ledger (`bambamramfan/surviving.md`). Upstream counts:
+0 new, 0 renamed, 1 changed, 0 vanished. Comments: not configured.
+
+Changed:
+
+- **LC-0001** — bambamramfan:2026-10-16:erdos-open. Upstream added a
+  dated RETRACTION block to the entry: the proof-claims thread on
+  erdosproblems.com (the page our verifier could not reach because of a
+  Cloudflare 403) already carried the same prime-case result, submitted
+  2026-07-24 by jphme, two days before Beeson's preprint. The problem
+  page itself (last edited 2025-12-30) already links Beeson's slides.
+  The tracker is NOT stale, nothing is missing, and the draft issue
+  must not be posted. The upstream retraction labels this the same
+  failure as pilot #1221 — a blocked check is a refutation, not a
+  caveat to publish alongside. **LC-0001 flipped from `open` to
+  `rejected`** with a dated Update paragraph; lead body preserved.
+
+Noted for next-time rule-tightening: v2 of my own routine already bars
+promoting leads whose central-absence claim rests on a blocked page.
+LC-0001 was promoted under v1 earlier today and is the exact case the
+new rule exists to prevent; the retraction propagation worked as
+designed.
+
+Needs Betsy: none.
