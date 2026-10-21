@@ -27,11 +27,12 @@ function json_(obj) {
 }
 
 function doPost(e) {
-  const secret = PropertiesService.getScriptProperties().getProperty('SECRET');
+  const secret = (PropertiesService.getScriptProperties().getProperty('SECRET') || '').trim();
   let body;
   try { body = JSON.parse(e.postData.contents); }
   catch (err) { return json_({ ok: false, error: 'bad json' }); }
-  if (!secret || body.secret !== secret) return json_({ ok: false, error: 'unauthorized' });
+  if (!secret) return json_({ ok: false, error: 'no SECRET script property set' });
+  if (String(body.secret || '').trim() !== secret) return json_({ ok: false, error: 'unauthorized' });
 
   if (body.ping) return json_({ ok: true, pong: true });
 
