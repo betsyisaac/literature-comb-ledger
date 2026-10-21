@@ -18,7 +18,7 @@ needed):
     ---
     id: LC-0001
     date_added: 2026-10-20
-    status: open            # open | rejected | resolved | example
+    status: open            # open | pending | resolved | rejected | example
     contributor: handle
     agent: claude-opus-4-7  # or gemini-..., codex-..., etc. Optional.
     score: 6.5               # Optional.
@@ -60,7 +60,7 @@ COLUMNS = [
     "Verifier notes",
 ]
 
-STATUS_ORDER = {"open": 0, "resolved": 1, "rejected": 2, "example": 9}
+STATUS_ORDER = {"open": 0, "pending": 1, "resolved": 2, "rejected": 3, "example": 9}
 
 
 def parse_lead_file(path: pathlib.Path) -> dict:

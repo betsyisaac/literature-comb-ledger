@@ -76,15 +76,18 @@ function refreshLeads() {
     sheet.autoResizeColumn(c);
   }
 
-  // Stamp "Last updated" on the Project Info tab. This only means
-  // "the last time this sync ran" — but since the sync is triggered
-  // by leads.csv actually having changed (the GitHub Action only
-  // commits index.md/leads.csv when the diff is non-empty), in
-  // practice it tracks real data changes, not just a heartbeat.
+  // Stamp "Last updated" on the Project Info tab — but ONLY when the CSV
+  // content actually differs from the last sync. (The trigger fires every
+  // 6 hours regardless; an earlier version stamped on every run, which
+  // made "Last updated" mean "last heartbeat" rather than "last change".)
+  const csvHash = Utilities.base64Encode(
+    Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, csvText, Utilities.Charset.UTF_8));
+  const props = PropertiesService.getScriptProperties();
   const infoSheet = ss.getSheetByName(INFO_SHEET_NAME);
-  if (infoSheet) {
+  if (infoSheet && props.getProperty('lastCsvHash') !== csvHash) {
     infoSheet.getRange(INFO_LAST_UPDATED_CELL)
       .setValue(Utilities.formatDate(new Date(), 'UTC', 'yyyy-MM-dd HH:mm') + ' UTC');
+    props.setProperty('lastCsvHash', csvHash);
   }
 }
 
@@ -101,4 +104,46 @@ function setup() {
   });
   ScriptApp.newTrigger('refreshLeads').timeBased().everyHours(6).create();
   refreshLeads();
+}
+
+// ---------------------------------------------------------------------
+// COMMENT FEED for the headless promotion agent.
+//
+// SpreadsheetApp can't see threaded Comments (only cell Notes), and the
+// daily promotion routine runs headless (no browser). So this doGet()
+// turns the Sheet's comment threads into JSON that the routine fetches
+// with curl. Deployed as a web app: Execute as = Me, Who has access =
+// Anyone. That exposes nothing new — anyone with the Sheet link can
+// already read every comment — and the web-app URL itself lives only in
+// a local config file on Betsy's machine, never in this repo.
+//
+// Requires the Drive advanced service: in the Apps Script editor, left
+// sidebar "Services" (+) -> "Drive API" -> Add (keep the default version).
+// The function reads comments on THIS ONE FILE only and writes nothing.
+// ---------------------------------------------------------------------
+function doGet(e) {
+  const comments = [];
+  let pageToken = null;
+  do {
+    const resp = Drive.Comments.list(SPREADSHEET_ID, {
+      pageSize: 100,
+      pageToken: pageToken,
+      includeDeleted: false,
+      fields: 'nextPageToken,comments(id,createdTime,modifiedTime,resolved,deleted,' +
+              'content,anchor,quotedFileContent,author(displayName,me),' +
+              'replies(id,createdTime,modifiedTime,deleted,content,action,author(displayName,me)))'
+    });
+    (resp.comments || []).forEach(function (c) { comments.push(c); });
+    pageToken = resp.nextPageToken;
+  } while (pageToken);
+  return ContentService
+    .createTextOutput(JSON.stringify({ fetched_at: new Date().toISOString(), comments: comments }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+// Run once by hand from the editor after adding the Drive service, to
+// trigger Google's permission screen for the new Drive scope and to check
+// the output in the execution log before deploying.
+function testCommentFeed() {
+  Logger.log(doGet().getContent().slice(0, 2000));
 }

@@ -3,56 +3,68 @@
   "bambamramfan:2026-10-16 | erdos-open | score 5 | DESTINATION: issue/PR draft ready": {
     "outcome": "promoted",
     "lc_id": "LC-0001",
-    "date_checked": "2026-10-20"
+    "date_checked": "2026-10-20",
+    "body_sha256": "14d54217ff429d66d889ef486ed149599aeaaa87a285a7ab7bbd6bf18db538b1"
   },
   "bambamramfan:2026-10-16 | cauris | score 6.5 | DESTINATION: undecided": {
     "outcome": "promoted",
     "lc_id": "LC-0002",
-    "date_checked": "2026-10-20"
+    "date_checked": "2026-10-20",
+    "body_sha256": "16f8b37c06c4154b5e27ee2529644c5cf679cc2c4f7fba2280662becf0527fd2"
   },
   "bambamramfan:2026-10-19 | cauris | ~6/10 | DESTINATION: undecided": {
     "outcome": "promoted",
     "lc_id": "LC-0003",
-    "date_checked": "2026-10-20"
+    "date_checked": "2026-10-20",
+    "body_sha256": "05fa1482bb6bcc8d47ca926133dba4cd61e045a5663beefb7668ddf8b3e506bd"
   },
   "bambamramfan:2026-10-19 | cauris | WEAK (3/10 at best) | DESTINATION: undecided": {
     "outcome": "skipped",
     "reason": "Source entry explicitly labels itself 'Recorded as weak, not promoted'; 2 of 3 verifiers flagged the primary 1979 Ustilago source as undercutting the bridge (azasteroid cross-tolerance with triarimol is most plausibly efflux-mediated, the same C. auris mechanism the bridge dismisses).",
-    "date_checked": "2026-10-20"
+    "date_checked": "2026-10-20",
+    "body_sha256": "24778ee43f8291dabb3ab571d76d8d101059e221e6f6859b3f23d1d9a5beafe0"
   },
   "bambamramfan:2026-10-20 | cacao-cadmium | score 7/6/6 (3 of 3 survived) | DESTINATION: undecided": {
     "outcome": "promoted",
     "lc_id": "LC-0004",
-    "date_checked": "2026-10-20"
+    "date_checked": "2026-10-20",
+    "body_sha256": "c756f3bfb291a402938cb6e6357931f07c22abf55b8a97c008dd33fdac1fb67e"
   },
   "bambamramfan:2026-10-20 | apple-replant-etiology | WEAK (6/4/4, survived only because nobody voted refuted) | DESTINATION: undecided": {
     "outcome": "skipped",
     "reason": "Source entry is explicit that the lead's headline framing is false (all three verifiers said so: benzoic-acid autotoxicity and prunasin/cyanide are already treated as one pathway) and labels itself 'Recorded as WEAK, not promoted'.",
-    "date_checked": "2026-10-20"
+    "date_checked": "2026-10-20",
+    "body_sha256": "f9f7840f7942acd80cd9a487361691097ff1ef51480f081233fef947ec32e37a"
   },
   "bambamramfan:2026-10-20 | secondary-al-iron | WEAK (5/4/4, one of three voted refuted) | DESTINATION: undecided": {
     "outcome": "skipped",
     "reason": "All three source-side verifiers caught a physics error in the lead (beta-AlFeSi is not buoyant; the proposed classifier would export iron into the product, not out); source labels the entry WEAK and recommends dropping the classifier framing.",
-    "date_checked": "2026-10-20"
+    "date_checked": "2026-10-20",
+    "body_sha256": "a0dbe2d0268ef0637f9fff567e8af422c25bafe51842bc9ec335ecae8db823e3"
   },
   "bambamramfan:2026-10-20 (scheduled run, batch 2) — konzo-neurotoxin": {
     "outcome": "skipped",
     "reason": "Scores 4/3/2 (below the source's own 6 threshold); verifiers flagged phenotype mismatch (BCA causes acute convulsive seizures, konzo is chronic non-convulsive spastic paraparesis) and backwards stoichiometry (the accepted sulfur-amino-acid-deficiency cofactor is substrate-limiting for BCA formation, so it would suppress rather than drive the proposed toxin). Source labels it a WEAK SURVIVOR.",
-    "date_checked": "2026-10-20"
+    "date_checked": "2026-10-20",
+    "body_sha256": "8811015ff8c1f8a499dffd926b3ed1a6a7d44dafa0e49adbf1716ce4a00134be"
   },
   "bambamramfan:2026-10-20 (scheduled run, batch 4) — inp-secondary-ice": {
     "outcome": "promoted",
     "lc_id": "LC-0005",
-    "date_checked": "2026-10-20"
+    "date_checked": "2026-10-20",
+    "body_sha256": "0f912698e75c6624ed1240ed5c4eaaa8ee7bd203d3d6a04d677b9a83d9652848"
   },
   "bambamramfan:2026-10-20 (scheduled run, batch 7) — zhf_core_temp_transient_deconvolution": {
     "outcome": "skipped",
     "reason": "Below source's own 6 threshold (5/5/4); all three verifiers flagged primary_source_undercuts_lead — the identification procedure the lead attributes to the source is not actually in the source, and the source itself says tau is instrument-AND-sample-dependent, which partly vindicates the physiological attribution the lead means to displace.",
-    "date_checked": "2026-10-20"
+    "date_checked": "2026-10-20",
+    "body_sha256": "cfb85f90ed4a6b66667b7e033e1e7c87f205857525f99dea7815e4ea43c5db07"
   },
   "bambamramfan:2026-10-20 (scheduled run, batch 9) — lpbf-in-process-distortion-control": {
     "outcome": "skipped",
     "reason": "Specific novelty claim is false as written (verifier found Wu et al. 2019 Sci Technol Weld Join evaluating Ti-6Al-4V wire-arc residual stress against cooling-source distance, and PAS 6012:2020 already covers melt-pool-localised cooling); below the source's own 6 threshold (5/5/3) with both non-refuting verifiers attacking novelty.",
-    "date_checked": "2026-10-20"
-  }
+    "date_checked": "2026-10-20",
+    "body_sha256": "818d3388857ce0c51bdfdabfd6d45f29aba57337dd4a328e3ac716d2d539d006"
+  },
+  "_last_upstream_commit": "3531ef111698512ec0047b38ba52c6fd9ffa2831"
 }

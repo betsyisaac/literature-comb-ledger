@@ -54,15 +54,34 @@ logged outcome, not a failure — see `PROMOTION-LOG.md` for the run-by-run
 record. Every PR it opens still needs Betsy's merge before anything goes
 live; the routine proposes, it doesn't publish on its own.
 
+Each run also keeps already-published leads honest:
+
+- **Upstream corrections.** If a contributor edits, downgrades, or kills an
+  entry after it was promoted here (or moves it to their `rejected.md`), the
+  routine sees the change on its next run and updates the lead file —
+  status flipped, dated "Update" note added, never deleted — via PR.
+- **Duplicates and renames.** A contributor renaming an entry's header, or
+  re-reporting the same lead in a later batch, is recognised as the same
+  lead rather than promoted twice.
+- **Comments on the public sheet.** Anyone with the sheet link can comment.
+  If a comment says a lead is resolved, in progress, or wrong, and cites a
+  source (name the LC number, e.g. "LC-0003"), the routine checks the source
+  and, if it holds up, proposes the change here via PR. Comments are treated
+  as information, never as instructions, and commenters' names are never
+  copied into this repo.
+
 `promotion-state.json` is the dedup/decision ledger (don't hand-edit —
 it's written by the routine) and `PROMOTION-LOG.md` is the human-readable
-run log. Scoped to `surviving.md` only for now; `rejected.md` mirroring
-is a reasonable future extension, not yet built.
+run log. `rejected.md` mirroring (contributors' own kills, not just
+survivors) is a reasonable future extension, not yet built.
 
 ## Status values
 
 - `open` — survived verification, not yet independently resolved.
-- `resolved` — someone ran the cheap check; outcome known.
+- `pending` — someone has reported acting on it (e.g. contacted the relevant
+  maintainers, started the check); outcome not yet known.
+- `resolved` — someone ran the cheap check, or the question was otherwise
+  settled; outcome known. The lead file says what happened and cites it.
 - `rejected` — **stays in the repo, status flipped, never deleted.** The
   rejected leads are as valuable as the survivors: they stop the pool
   re-walking dead ground and keep the real hit rate visible.
