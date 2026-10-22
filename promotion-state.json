@@ -69,5 +69,110 @@
     "date_checked": "2026-10-20",
     "body_sha256": "818d3388857ce0c51bdfdabfd6d45f29aba57337dd4a328e3ac716d2d539d006"
   },
-  "_last_upstream_commit": "581c0a1951e74e7e140c56f52354a7c7c918f746"
+  "_last_upstream_commit": "d3ceeb3be7aaa78c6f5be3b950ee46473799e9a5",
+  "bambamramfan:2026-10-21 | tial_hot_salt_scc_300_500C | scores 7/5/3 (1 of 3 refuted) | DESTINATION: undecided": {
+    "outcome": "promoted",
+    "lc_id": "LC-0006",
+    "notes": [
+      "2026-10-22: scores 7/5/3; TiAl HSSCC accelerator mechanism promoted with two-step cheap check (handbook ILL + HCl-evolution screen)"
+    ],
+    "body_sha256": "d87707664989ec938816339ff3c404648dcf7063f36e478ca07dccc99a4dad3c",
+    "date_checked": "2026-10-22"
+  },
+  "bambamramfan:2026-10-21 | glass-core-static-fatigue | scores 8/5/5 (0 of 3 refuted) | DESTINATION: undecided": {
+    "outcome": "promoted",
+    "lc_id": "LC-0007",
+    "notes": [
+      "2026-10-22: scores 8/5/5, 0 refuted; W&B 1970 Table II -> glass-core lifetime; merged with 8/3/7 sibling"
+    ],
+    "body_sha256": "5ab7b1eeb157f2946c218dad0a3e1652fda4287f7d677e0c9bfc856d673f3a89",
+    "date_checked": "2026-10-22"
+  },
+  "bambamramfan:2026-10-21 | glass-core-static-fatigue | scores 8/3/7 (1 of 3 refuted) | DESTINATION: undecided": {
+    "outcome": "promoted",
+    "lc_id": "LC-0007",
+    "notes": [
+      "2026-10-22: merged into LC-0007 with sibling 8/5/5 entry; threshold-asymmetry angle folded in"
+    ],
+    "body_sha256": "d04650580f7ff38861f4065e3c610197c1795c156b821005bd2a71a9fa4ee8f0",
+    "date_checked": "2026-10-22"
+  },
+  "bambamramfan:2026-10-21 | dryland_station_soil_moisture_1906_1940 | scores 6/6/3 (1 of 3 refuted) | DESTINATION: undecided": {
+    "outcome": "promoted",
+    "lc_id": "LC-0008",
+    "notes": [
+      "2026-10-22: scores 6/6/3; narrowed to annual seeding-time snapshot ending 1934; Cole & Mathews / Rogler & Haas / SSSAJ 1954 flagged as broader denominator"
+    ],
+    "body_sha256": "c997efa870f4397499cc32706dab9049fcddc0a0246b48dc20347274347d69f6",
+    "date_checked": "2026-10-22"
+  },
+  "bambamramfan:2026-10-21 | firn_tunnel_closure_calibration | scores 7/6/5 (0 of 3 refuted) | DESTINATION: undecided": {
+    "outcome": "promoted",
+    "lc_id": "LC-0009",
+    "notes": [
+      "2026-10-22: scores 7/6/5, 0 refuted; reframed cheap check (oblique diameters, not three-way ratio) per upstream verifier algebra"
+    ],
+    "body_sha256": "92bd49952a8ea2a6ec1e38cca93ea8ec72f6a0367a64f9d82005978f1bdaf7bd",
+    "date_checked": "2026-10-22"
+  },
+  "bambamramfan:2026-10-21 | lusatia-flowliq-population | scores 7/4/3 (1 of 3 refuted) | DESTINATION: undecided": {
+    "outcome": "promoted",
+    "lc_id": "LC-0010",
+    "notes": [
+      "2026-10-22: scores 7/4/3; reframed as retrodiction on ~10 pre-failure-terrain flow failures (Nerlerk, Wachusett, Fundao etc.), not against Ghahramani's post-event-only set"
+    ],
+    "body_sha256": "4ebf991c7897eda8be83c7ffcb2b0f5d40ab7e203c1afa788377ebcdc13f67c4",
+    "date_checked": "2026-10-22"
+  },
+  "bambamramfan:2026-10-21 | grain-storage-hermetic-insect-control | scores 7/5/2 (1 of 3 refuted) | DESTINATION: undecided": {
+    "outcome": "promoted",
+    "lc_id": "LC-0011",
+    "notes": [
+      "2026-10-22: scores 7/5/2; filled-bag pressure-decay half-life vs liner OTR; indoor/outdoor and two-fill-level controls folded in to address thermal and compliance confounds"
+    ],
+    "body_sha256": "d7cd22021df5613784b5481b272809c8ec23d09ab7fc9ffb7119acd652260bb8",
+    "date_checked": "2026-10-22"
+  },
+  "bambamramfan:2026-10-21 | glass-core-static-fatigue | scores 7/4/2 (1 of 3 refuted) | DESTINATION: undecided": {
+    "outcome": "skipped",
+    "reason": "NASA TM-103543 proof-test-diagram transplant: upstream verifier 2 found US 7,461,564 B2 (Glaesemann, Corning, 2006) already proof-tests glass panels for multi-year lifetime guarantee, which falsifies the institutional-separation gap mechanism; verifier 2 also noted its own WebSearch budget was exhausted mid-sweep so the ECTC/IMAPS/thesis proceedings search was not completed; a check that could not be performed is a check that failed",
+    "body_sha256": "9de56f4100c6b949b0b4116574f526453e32e454fa42f73d90c7ca2975600747",
+    "date_checked": "2026-10-22"
+  },
+  "bambamramfan:2026-10-21 | glass-core-static-fatigue | scores 7/3/2 (1 of 3 refuted) | DESTINATION: undecided": {
+    "outcome": "skipped",
+    "reason": "NASA Bernstein / NASA-STD-5018 transplant: upstream verifier 2 showed the identical proof-test-plus-stress-corrosion-to-lifetime formalism is already an IEC standard (IEC/TR 62048, GR-20) inside the glass-for-electronics supply chain, Corning has published n~20 for display glass with fast-proof-test caveat, and NASA-STD-5018 Sec. 4.9.3/4.9.9 says proof testing cannot screen residual-stress fields and edges are 'extremely difficult to proof test adequately' — novelty collapses",
+    "body_sha256": "7f85ddd05e709cda759fd3b28e8543aa42c33ae28c1d16fa13ee41f0b7409d5e",
+    "date_checked": "2026-10-22"
+  },
+  "bambamramfan:2026-10-21 | lpa_design_rules_for_soft_pneumatic_logic | scores 8/7/3 (1 of 3 refuted) | DESTINATION: undecided": {
+    "outcome": "skipped",
+    "reason": "constant-Reynolds staging transplant from NASA TN D-8433: likely closest prior art is Gallardo Hevia 2023 Harvard PhD thesis 'Cascadable elastomer-based fluidic circuits' which names input/output impedance and venting-resistor impedances; two upstream verifiers (score 7 and score 3) report they could not open the thesis (DASH 429, Wiley 403) or complete the search (web budget exhausted, OpenAlex 429). A check that could not be performed on the likeliest prior-art document counts as failed, not a caveat",
+    "body_sha256": "839fc6ae6c1d43e40d60b13cdb56b0a970506e1c1c84e97ac266812cdbb4d375",
+    "date_checked": "2026-10-22"
+  },
+  "bambamramfan:2026-10-21 | lpa_design_rules_for_soft_pneumatic_logic | scores 6/3/5 (1 of 3 refuted) | DESTINATION: undecided": {
+    "outcome": "skipped",
+    "reason": "power-modulation (short-splitter) LPA transplant from HDL-CR-85-122-1: upstream verifier 2 refuted (score 3) by finding Gallardo Hevia's 2023 Harvard PhD Chapter 3 'Soft, Fluidic Power Amplifier' explicitly treats impedance matching for maximum power transfer with power = pressure x flow, citing Bain 1970 'Heavy current fluidics', Cycon & Schaffer 1982, and the Joyce 1983 HDL fluidics handbook — same lab lineage. The connection the lead claims is unmade is already in print, by the author the scout cited",
+    "body_sha256": "a17aeaf004beb905d41ef8fdaecd963a07e4005ec72e017956454fe2a818a303",
+    "date_checked": "2026-10-22"
+  },
+  "bambamramfan:2026-10-21 | deepwater_sludge_as_mcdr_analog | scores 4/5/2 (1 of 3 refuted) | DESTINATION: undecided": {
+    "outcome": "skipped",
+    "reason": "upstream verdict kills the lead's MRV-detection-limit framing on the primary source's own text: the ~60 mg/m2/day loading is a MODEL prediction (Isaji 1995, Fry & Butman 1991), the EPA Executive Summary bounds delivered fraction only at 20-70%, and the 10^4 km2 footprint is the Clostridium perfringens tracer map, not the benthic-oxygen result (which rests on three dive stations). Verifier 3 (refuted, score 2) found Bauer et al. 2026 (Commun. Earth Environ., 11 Mar 2026) is a year-long deliberate in-situ deep-ocean kelp emplacement with benthic monitoring — the substrate-correct regeneration of this exact calibration",
+    "body_sha256": "ec169a907939d8e7369707e6204f7b16160a23d8e98b26daf5234a9041461aee",
+    "date_checked": "2026-10-22"
+  },
+  "bambamramfan:2026-10-21 | phreatophyte_tank_et_vs_watertable_depth | scores 4/6/2 (1 of 3 refuted) | DESTINATION: undecided": {
+    "outcome": "skipped",
+    "reason": "RIP-ET 'wrong sign of slope for saltcedar' headline fails on PFG mapping: 'Tamarix'/'saltcedar' appear ZERO times in TM 6-A39; its transitional riparian group is explicitly outer-edge facultative species (walnut, hackberry, sacaton, sycamore, elderberry) 'not strictly dependent on a high water table', for which a deeper water table may be ideal by definition. Saltcedar maps to RIP-ET's deep-rooted riparian group whose Table A5 declines monotonically with depth, matching the tank sign. Van Hylckama himself disclaims the 2.7 m endpoint ('may have been caused by high salinity ... rather than depth to ground water') that sets the extrapolated extinction depth",
+    "body_sha256": "45979c193bb38fc36011c90aa17cf59e7b58ea4814133aa3086812d6dd0075d7",
+    "date_checked": "2026-10-22"
+  },
+  "bambamramfan:2026-10-21 | si3n4_static_fatigue_vs_amb_power_substrate_qualification | scores 6/2/3 (1 of 3 refuted) | DESTINATION: undecided": {
+    "outcome": "skipped",
+    "reason": "ESIS Si3N4 n~50 -> AMB substrate lifetime: upstream verifier 2 (refuted, score 2) showed the lead's load-bearing anchor is misread (Fig. 7's 550 MPa belongs to the 1000 C air panel, not the 22 C water panel whose lowest level is ~600 MPa). Running the lead's own (sigma_ref/sigma_local)^50 sweep with the correct anchor and published AMB peak ceramic tension (350-436 MPa Yao/Volinsky) gives 5e12-4e14 s against 4.7e8 s required — a 4-6 decade margin. The lead needed ~500 MPa to make the answer interesting and no published AMB FEA gets there. The effective-volume move also runs backwards. The gap is a correct null, not an instrument blind spot",
+    "body_sha256": "8c898c293cb93078a8aaa1aee6399b1c175fb6b7905a32e86605d8e25328fe55",
+    "date_checked": "2026-10-22"
+  }
 }
