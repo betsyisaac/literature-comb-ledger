@@ -7,6 +7,24 @@ complete result, not a gap.
 
 ---
 
+## 2026-10-25 (session 713397ec)
+
+Waiting on PR #3 (`promote/2026-10-22`) to be merged; skipping today.
+
+---
+
+## 2026-10-24 (session dd02cbae)
+
+Waiting on PR #3 (`promote/2026-10-22`) to be merged; skipping today.
+
+---
+
+## 2026-10-23 (session 8eb00a64)
+
+Waiting on PR #3 (`promote/2026-10-22`) to be merged; skipping today.
+
+---
+
 ## 2026-10-22 (session 49ec4f7b)
 
 Read 1 contributor ledger (`bambamramfan/surviving.md`). Upstream advanced
