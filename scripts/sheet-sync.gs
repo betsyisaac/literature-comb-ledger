@@ -85,7 +85,7 @@ function refreshLeads() {
 
   // Stamp "Last updated" on the Project Info tab — but ONLY when the CSV
   // content actually differs from the last sync. (The trigger fires every
-  // 6 hours regardless; an earlier version stamped on every run, which
+  // hour regardless; an earlier version stamped on every run, which
   // made "Last updated" mean "last heartbeat" rather than "last change".)
   const csvHash = Utilities.base64Encode(
     Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, csvText, Utilities.Charset.UTF_8));
@@ -100,7 +100,7 @@ function refreshLeads() {
 
 // Run this ONCE by hand: select "setup" in the function dropdown at the
 // top of the Apps Script editor, click Run. It does one immediate
-// refresh and installs the recurring trigger (every 6 hours). Safe to
+// refresh and installs the recurring trigger (hourly since 2026-10-25; was every 6 hours). Safe to
 // re-run later — it clears any existing trigger first, so it never
 // creates duplicates.
 function setup() {
@@ -109,7 +109,7 @@ function setup() {
       ScriptApp.deleteTrigger(t);
     }
   });
-  ScriptApp.newTrigger('refreshLeads').timeBased().everyHours(6).create();
+  ScriptApp.newTrigger('refreshLeads').timeBased().everyHours(1).create();
   refreshLeads();
 }
 
