@@ -185,17 +185,17 @@ function doPost(e) {
   try {
     if (action === 'reply') {
       if (!commentId || !text) return out({ ok: false, error: 'missing comment_id or text' });
-      const reply = Drive.Replies.create({ content: label(text) }, SPREADSHEET_ID, commentId,
-                                         { fields: 'id,createdTime,content' });
-      return out({ ok: true, action: action, reply: reply });
+      const posted = Drive.Replies.create({ content: label(text) }, SPREADSHEET_ID, commentId,
+                                          { fields: 'id,createdTime,content' });
+      return out({ ok: true, action: action, reply: posted });
     }
     if (action === 'resolve') {
       if (!commentId) return out({ ok: false, error: 'missing comment_id' });
       const res = { action: 'resolve' };
       if (text) res.content = label(text);
-      const reply = Drive.Replies.create(res, SPREADSHEET_ID, commentId,
-                                         { fields: 'id,createdTime,content,action' });
-      return out({ ok: true, action: action, reply: reply });
+      const resolved = Drive.Replies.create(res, SPREADSHEET_ID, commentId,
+                                            { fields: 'id,createdTime,content,action' });
+      return out({ ok: true, action: action, reply: resolved });
     }
     if (action === 'new_thread') {
       if (!text) return out({ ok: false, error: 'missing text' });
