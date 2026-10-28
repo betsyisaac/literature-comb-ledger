@@ -199,6 +199,18 @@ def main() -> int:
     INDEX_MD.write_text(build_index_md(leads), encoding="utf-8")
     LEADS_CSV.write_text(build_leads_csv(leads), encoding="utf-8")
     print(f"wrote {INDEX_MD.relative_to(ROOT)} and {LEADS_CSV.relative_to(ROOT)} from {len(leads)} lead file(s)")
+
+    # The public GitHub Pages site. Imported here rather than at module level
+    # because build_site imports from this module, and a top-level import
+    # would be circular. Deliberately NOT wrapped in try/except: if the site
+    # build breaks, CI should go red rather than quietly publishing a stale
+    # page while reporting success. That failure mode — a green run over a
+    # stale artefact — is exactly what cost three days on 2026-10-28.
+    import build_site
+    rc = build_site.main()
+    if rc:
+        print("error: site build failed", file=sys.stderr)
+        return rc
     return 0
 
 

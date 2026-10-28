@@ -6,6 +6,7 @@ on:
     paths:
       - "leads/**"
       - "scripts/build.py"
+      - "scripts/build_site.py"
   workflow_dispatch: {}
 
 permissions:
@@ -67,13 +68,13 @@ jobs:
 
             python3 scripts/build.py
 
-            if git diff --quiet -- index.md leads.csv; then
-              echo "index.md and leads.csv already match leads/ at origin/main; nothing to commit."
+            if git diff --quiet -- index.md leads.csv docs; then
+              echo "index.md, leads.csv and docs/ already match leads/ at origin/main; nothing to commit."
               exit 0
             fi
 
-            git add index.md leads.csv
-            git commit -m "chore: regenerate index.md and leads.csv [skip ci]"
+            git add index.md leads.csv docs
+            git commit -m "chore: regenerate index.md, leads.csv and docs/ [skip ci]"
 
             if git push; then
               echo "Pushed regenerated files (attempt ${attempt})."
@@ -84,7 +85,7 @@ jobs:
             sleep $((attempt * 3))
           done
 
-          echo "::error::Could not push regenerated index.md / leads.csv after 5 attempts."
+          echo "::error::Could not push regenerated derived files after 5 attempts."
           echo "main is being written to faster than this job can regenerate. Run the"
           echo "workflow manually once the writes stop:"
           echo "  gh workflow run build.yml --repo betsyisaac/literature-comb-ledger --ref main"
