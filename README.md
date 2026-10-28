@@ -1,7 +1,14 @@
 # Literature Comb — public ledger
 
-The rendered, consolidated view is **[index.md](index.md)**.
-The machine-readable feed is **[leads.csv](leads.csv)**.
+**Read it here: https://betsyisaac.github.io/literature-comb-ledger/** —
+every lead in full on one page, sortable and filterable, nothing behind a click.
+
+Also available: **[index.md](index.md)** (rendered on GitHub),
+**[leads.csv](leads.csv)** and
+**[leads.json](https://betsyisaac.github.io/literature-comb-ledger/leads.json)**
+(machine-readable), and
+**[llms.txt](https://betsyisaac.github.io/literature-comb-ledger/llms.txt)**
+(what this is, for an LLM or agent reading on a researcher's behalf).
 
 ## What this is
 
