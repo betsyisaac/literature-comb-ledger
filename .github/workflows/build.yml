@@ -11,6 +11,17 @@ on:
 permissions:
   contents: write
 
+# Two pushes to main close together used to produce two runs racing for the
+# same ref, and the loser died with a rejected push (2026-10-28: PR #4 merged
+# at 17:51:54, an unrelated commit landed 8s later, the rebuild's push was
+# rejected non-fast-forward, and index.md / leads.csv silently stayed three
+# days stale while the Sheet faithfully mirrored the stale file). Queue runs
+# instead of racing them. Not cancel-in-progress: a cancelled run could die
+# between commit and push, and these runs take ~10s anyway.
+concurrency:
+  group: rebuild-derived-files
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,22 +29,63 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          # Always build from the tip of main, never from the sha that
+          # triggered this run. index.md and leads.csv are a pure function of
+          # leads/*.md, so the tip is always the correct input — and this is
+          # what makes "Re-run jobs" on an old failed run actually work.
+          # Before this, a re-run checked out the original (now-behind) sha
+          # and could only ever fail again with non-fast-forward.
+          ref: main
 
       - uses: actions/setup-python@v5
         with:
           python-version: "3.x"
 
+      # Kept as its own step so that a genuine build.py error is reported as
+      # a build failure, distinct from a push failure below.
       - name: Build index.md and leads.csv
         run: python3 scripts/build.py
 
       - name: Commit regenerated files if changed
         run: |
+          set -euo pipefail
           git config user.name "literature-comb-ledger-bot"
           git config user.email "actions@users.noreply.github.com"
-          if ! git diff --quiet -- index.md leads.csv; then
+
+          # Converging retry. Each attempt re-reads the current tip of main,
+          # rebuilds from it, and commits only if the derived files disagree
+          # with it. No rebase and no merge, so a conflict is impossible: the
+          # only thing this job ever writes is the output of build.py over the
+          # leads/ tree it just read. If main moves under us, the next attempt
+          # simply builds from the newer tree.
+          for attempt in 1 2 3 4 5; do
+            # FETCH_HEAD rather than origin/main: FETCH_HEAD is always
+            # written by fetch, whereas the remote-tracking ref depends on the
+            # refspec actions/checkout happens to have configured.
+            git fetch origin main
+            git reset --hard FETCH_HEAD
+
+            python3 scripts/build.py
+
+            if git diff --quiet -- index.md leads.csv; then
+              echo "index.md and leads.csv already match leads/ at origin/main; nothing to commit."
+              exit 0
+            fi
+
             git add index.md leads.csv
             git commit -m "chore: regenerate index.md and leads.csv [skip ci]"
-            git push
-          else
-            echo "No changes to index.md or leads.csv"
-          fi
+
+            if git push; then
+              echo "Pushed regenerated files (attempt ${attempt})."
+              exit 0
+            fi
+
+            echo "::warning::Push rejected on attempt ${attempt} — main moved. Rebuilding from the new tip."
+            sleep $((attempt * 3))
+          done
+
+          echo "::error::Could not push regenerated index.md / leads.csv after 5 attempts."
+          echo "main is being written to faster than this job can regenerate. Run the"
+          echo "workflow manually once the writes stop:"
+          echo "  gh workflow run build.yml --repo betsyisaac/literature-comb-ledger --ref main"
+          exit 1
