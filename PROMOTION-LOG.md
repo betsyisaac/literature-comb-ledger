@@ -7,6 +7,43 @@ complete result, not a gap.
 
 ---
 
+## 2026-10-27 (session c82daa22)
+
+Read 1 contributor ledger (`bambamramfan/surviving.md`). Upstream advanced
+d3ceeb3 → 377700c. 2 new / 0 renamed / 0 changed / 0 vanished. Comment
+feed: 3 threads total, none new or updated.
+
+Both new entries promoted:
+
+- **LC-0012** ← `2026-10-26 | tial_hot_salt_scc_300_500C_second_pass`
+  (scores 7/6/2). Fluorine-effect sign-inversion hypothesis on gamma-TiAl
+  under hot salt SCC at 300-500 C: whether the 1969 Ondrejcin fluoride-
+  inhibits-cracking result inverts on a 45-50 at% Al alloy because surface
+  AlF3 is non-volatile where TiF4 sublimes. Primary source (DP(NASA)-1179)
+  OCR'd and verbatim-verified by two of three verifiers. Related to but
+  distinct from LC-0006 (alumina-catalysis onset mechanism, same alloy
+  family, different old source CR-1133). First cheap check is a free
+  DECHEMA email; bench ladder is $5-8k. Carried the refuting verifier's
+  mechanism objection (TiF4 vapor pressure peaks at 400 C per the modern
+  review; AlF — not AlF3 — is the Al carrier) into the lead body unmodified.
+
+- **LC-0013** ← `2026-10-26 | agx_constant_ion_activity_precipitation`
+  (scores 7/6/3). Transfer photographic constant-pAg/pBr double-jet
+  precipitation (DuPont 1972-81 patents) as a reproducibility instrument
+  to CsPbX3 perovskite nanocrystal LARP, where free halide activity is
+  never measured. Primary sources (US 4,147,551 and US 4,251,627) fetched
+  and body-verified independently by two verifiers; both flagged the same
+  citation-placement defect (lead's causal thesis actually sits in
+  US 5,429,920 / US 5,151,357, with ripening-agent claim in US 4,683,192
+  / US 5,275,930) and carried it into the lead body. The refuting
+  verifier's physics objection (halide ISEs non-Nernstian in aprotic
+  solvents; PbBr(3-/4-) complexation; ~200 ms LARP timescale) is exactly
+  what the proposed $1000 half-day ISE slope test probes.
+
+No comment-driven lead changes. No escalations.
+
+---
+
 ## 2026-10-26 (session fc0cde6a)
 
 Read 1 contributor ledger (`bambamramfan/surviving.md`). Upstream at

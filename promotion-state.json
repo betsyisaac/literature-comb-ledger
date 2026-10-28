@@ -69,7 +69,7 @@
     "date_checked": "2026-10-20",
     "body_sha256": "818d3388857ce0c51bdfdabfd6d45f29aba57337dd4a328e3ac716d2d539d006"
   },
-  "_last_upstream_commit": "d3ceeb3be7aaa78c6f5be3b950ee46473799e9a5",
+  "_last_upstream_commit": "377700caf97fa2c19b3c8410dbff3b1373feee50",
   "bambamramfan:2026-10-21 | tial_hot_salt_scc_300_500C | scores 7/5/3 (1 of 3 refuted) | DESTINATION: undecided": {
     "outcome": "promoted",
     "lc_id": "LC-0006",
@@ -174,5 +174,23 @@
     "reason": "ESIS Si3N4 n~50 -> AMB substrate lifetime: upstream verifier 2 (refuted, score 2) showed the lead's load-bearing anchor is misread (Fig. 7's 550 MPa belongs to the 1000 C air panel, not the 22 C water panel whose lowest level is ~600 MPa). Running the lead's own (sigma_ref/sigma_local)^50 sweep with the correct anchor and published AMB peak ceramic tension (350-436 MPa Yao/Volinsky) gives 5e12-4e14 s against 4.7e8 s required — a 4-6 decade margin. The lead needed ~500 MPa to make the answer interesting and no published AMB FEA gets there. The effective-volume move also runs backwards. The gap is a correct null, not an instrument blind spot",
     "body_sha256": "8c898c293cb93078a8aaa1aee6399b1c175fb6b7905a32e86605d8e25328fe55",
     "date_checked": "2026-10-22"
+  },
+  "bambamramfan:2026-10-26 | tial_hot_salt_scc_300_500C_second_pass | scores 7/6/2 (1 of 3 refuted) | DESTINATION: undecided": {
+    "outcome": "promoted",
+    "lc_id": "LC-0012",
+    "notes": [
+      "2026-10-27: fluorine-effect sign-inversion on gamma-TiAl under hot salt SCC; distinct from LC-0006 (alumina catalysis)"
+    ],
+    "body_sha256": "34e3dfe9b86233447b41f6f408346f7ed6e3689bc55f24e1864e65f00e1f4a5d",
+    "date_checked": "2026-10-27"
+  },
+  "bambamramfan:2026-10-26 | agx_constant_ion_activity_precipitation | scores 7/6/3 (1 of 3 refuted) | DESTINATION: undecided": {
+    "outcome": "promoted",
+    "lc_id": "LC-0013",
+    "notes": [
+      "2026-10-27: photographic pAg control transfer to CsPbX3 LARP; first check is ISE Nernstian response in solvent"
+    ],
+    "body_sha256": "f9aa3133e1166600cbcd43f9ada0f78b2dbea204dbf4a8b05912cacd361a17e0",
+    "date_checked": "2026-10-27"
   }
 }
