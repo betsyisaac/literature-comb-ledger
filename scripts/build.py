@@ -43,12 +43,18 @@ LEADS_DIR = ROOT / "leads"
 INDEX_MD = ROOT / "index.md"
 LEADS_CSV = ROOT / "leads.csv"
 
-# The public 8-column schema. Changing this is a schema change — per the
-# project's own design decision, that needs a human go-ahead, not just an
-# edit to this script. (Internal-only fields like contributor/agent/score
-# live in the frontmatter and in git history even though they're not in
-# the public table below; promote them to a 9th/10th column deliberately,
-# not by accident.)
+# The public 8-column schema for leads.csv. Changing this is a schema change
+# — per the project's own design decision, that needs a human go-ahead, not
+# just an edit to this script. (Fields like contributor/agent live in the
+# frontmatter and in git history even though they're not in the table below;
+# promote them to a 9th/10th column deliberately, not by accident.)
+#
+# 2026-10-28, Betsy's explicit go-ahead: `score` was promoted to the PUBLIC
+# PAGE and to docs/leads.json (see scripts/build_site.py), with a gloss
+# explaining that slash-separated values are one score per verifier rather
+# than a fraction. It was deliberately NOT added to leads.csv, because the
+# CSV is the Google Sheet's feed and its column layout is settled there.
+# Adding it here is a separate decision, still open.
 COLUMNS = [
     "ID",
     "Date added",

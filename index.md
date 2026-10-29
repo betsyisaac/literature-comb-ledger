@@ -4,7 +4,7 @@ Consolidated public ledger of surviving leads from the Literature Comb project â
 
 | Field | |
 |---|---|
-| Last updated | 2026-10-28 20:00 UTC |
+| Last updated | 2026-10-29 01:58 UTC |
 | Public site | https://betsyisaac.github.io/literature-comb-ledger/ |
 | Maintainer | [@betsyisaac](https://github.com/betsyisaac) |
 | Per-contributor source ledgers | https://github.com/bambamramfan/literature-comb |

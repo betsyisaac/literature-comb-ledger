@@ -121,6 +121,7 @@ def lead_public_dict(lead):
         "old_source": flatten(lead.get("old_source", "")),
         "modern_problem": flatten(lead.get("modern_problem", "")),
         "cheapest_check": flatten(lead.get("cheapest_check", "")),
+        "score": flatten(lead.get("score", "")),
         "verifier_notes": flatten(lead.get("_body", "")),
         "source_file": "%s/blob/main/%s" % (REPO_URL, lead.get("_path", "")),
         "url": "%s#%s" % (SITE_URL, lead.get("id", "")),
@@ -148,6 +149,18 @@ def build_leads_json(leads, stamp):
                 "cheapest_check": (
                     "The cheapest concrete next step that could refute or "
                     "support the lead, with rough cost and time where known."
+                ),
+                "score": (
+                    "As recorded by the upstream verifiers, verbatim. Where "
+                    "several numbers are separated by slashes, that is ONE "
+                    "SCORE PER VERIFIER, not a fraction or a range: '7/6/2' "
+                    "means three verifiers scored the lead 7, 6 and 2, so one "
+                    "of the three thought it was weak. Spread between the "
+                    "numbers is signal — a lead two verifiers liked and one "
+                    "rejected is a different object from a unanimous 5. Out "
+                    "of 10. Not comparable across contributors or dates, and "
+                    "not a quality ranking: use it to find disagreement worth "
+                    "reading, not to sort."
                 ),
                 "verifier_notes": (
                     "What the automated verifiers actually fetched and "
@@ -262,6 +275,15 @@ def build_llms_txt(leads, stamp):
     out.append("- [Upstream per-contributor ledgers](%s): where leads originate, including rejected ones" % UPSTREAM_URL)
     out.append("- [Comment here to correct a lead](%s): name the LC number and link a source" % SHEET_URL)
     out.append("")
+    out.append("## Scores\n")
+    out.append(
+        "Slash-separated numbers are ONE SCORE PER VERIFIER, out of 10 — not "
+        "a fraction or a range. `7/6/2` means three verifiers scored the lead "
+        "7, 6 and 2, so one of the three thought it was weak. Treat the "
+        "spread as signal: a split verdict tells you where the strongest "
+        "objection lives, and the verifier notes will name it. Scores are not "
+        "comparable across contributors or dates and are not a ranking.\n"
+    )
     out.append("## Status values\n")
     for k, v in STATUS_BLURB.items():
         if k != "example":
@@ -269,8 +291,10 @@ def build_llms_txt(leads, stamp):
     out.append("")
     out.append("## Current leads (%d)\n" % len(real))
     for l in real:
-        out.append("- **%s** (%s, %s): %s" % (
+        sc = flatten(l.get("score", ""))
+        out.append("- **%s** (%s, %s%s): %s" % (
             l.get("id", ""), l.get("status", ""), l.get("date_added", ""),
+            (", score %s" % sc) if sc else "",
             truncate(l.get("headline", ""), 240),
         ))
     out.append("")
@@ -498,6 +522,7 @@ def build_html(leads, stamp):
 
     o.append('<h2 id="index">Index</h2>')
     o.append('<p class="meta">%s. Click a heading to sort.</p>' % html.escape(tally))
+    o.append('<p><strong>How to read a score.</strong> Slash-separated numbers are <em>one score per verifier, out of 10</em> &mdash; not a fraction, not a range. <code>7/6/2</code> means three verifiers scored it 7, 6 and 2, so one of the three thought the lead was weak. That disagreement is usually the most useful thing on the row: it tells you where to look first and what the strongest objection is. Scores are not comparable across contributors or dates, which is why this column does not sort.</p>')
     o.append('<div class="controls jsonly" hidden>')
     o.append('<input id="q" type="search" placeholder="Filter by any word — alloy, perovskite, Erdos, 1968…" aria-label="Filter leads">')
     o.append('<select id="status" aria-label="Filter by status"><option value="all">All statuses</option>')
@@ -512,6 +537,10 @@ def build_html(leads, stamp):
     o.append('<th data-sort="id" scope="col">ID</th>')
     o.append('<th data-sort="status" scope="col">Status</th>')
     o.append('<th data-sort="date" scope="col" class="hide-sm">Added</th>')
+    # No data-sort on Score: the values are free text ("7/6/2", "6.5",
+    # "8/5/5 (plus a sibling at 8/3/7)"), so any sort would be a lexical sort
+    # pretending to be a ranking. Shown for triage, not for ordering.
+    o.append('<th scope="col" class="hide-sm">Score</th>')
     o.append('<th data-sort="headline" scope="col">Lead</th>')
     o.append("</tr></thead><tbody>")
     for l in real:
@@ -528,6 +557,7 @@ def build_html(leads, stamp):
         o.append('<td><a href="#%s"><code>%s</code></a></td>' % (html.escape(lid), html.escape(lid)))
         o.append('<td><span class="badge s-%s">%s</span></td>' % (html.escape(s), html.escape(s)))
         o.append('<td class="hide-sm"><span class="meta">%s</span></td>' % html.escape(l.get("date_added", "")))
+        o.append('<td class="hide-sm"><span class="meta">%s</span></td>' % html.escape(flatten(l.get("score", "")) or "\u2014"))
         o.append("<td>%s</td>" % field_html(truncate(l.get("headline", ""), 260)))
         o.append("</tr>")
     o.append("</tbody></table>")
@@ -546,6 +576,8 @@ def build_html(leads, stamp):
         o.append("<dt>Old source</dt><dd>%s</dd>" % field_html(l.get("old_source", "")))
         o.append("<dt>Modern problem</dt><dd>%s</dd>" % field_html(l.get("modern_problem", "")))
         o.append("<dt>Cheapest next check</dt><dd>%s</dd>" % field_html(l.get("cheapest_check", "")))
+        if (l.get("score") or "").strip():
+            o.append('<dt>Verifier scores</dt><dd>%s <span class="meta">&mdash; one number per verifier, out of 10; spread between them is the interesting part</span></dd>' % field_html(l.get("score", "")))
         o.append('<dt>Verifier notes</dt><dd class="notes">%s</dd>' % paras(l.get("_body", "")))
         o.append('<dt>Provenance</dt><dd class="meta"><a href="%s/blob/main/%s">%s</a></dd>' % (
             REPO_URL, html.escape(l.get("_path", "")), html.escape(l.get("_path", ""))))
