@@ -48,4 +48,4 @@ Slash-separated numbers are ONE SCORE PER VERIFIER, out of 10 — not a fraction
 - **LC-0005** (open, 2026-10-20, score 6): Calcium phosphate (apatite / amorphous calcium phosphate) has apparently never been tested as an atmospheric ice-nucleating phase, although the insect-cryobiology literature names insoluble calcium-phosphate crystalloid deposits as a disti…
 - **LC-0001** (rejected, 2026-10-20, score 5): Erdos problem #634 (which N permit a triangle to be cut into N congruent triangles) is still listed open, but a July 2026 arXiv preprint fully settles the prime case — including the N=19 case the problem page explicitly calls out.
 
-Generated 2026-10-29T01:58:36+00:00. Do not hand-edit; see scripts/build_site.py.
+Generated 2026-10-29T01:58:46+00:00. Do not hand-edit; see scripts/build_site.py.

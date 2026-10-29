@@ -1,7 +1,7 @@
 {
   "name": "Literature Comb — surviving leads",
   "description": "A public ledger of candidate connections between old or cross-field scientific literature and unsolved modern problems, found by automated literature sweeps. Swanson-style literature-based discovery: each entry pairs a specific older source with a specific modern problem that has never cited it, and names the cheapest concrete next check. Every entry is an unrefereed hypothesis worth one cheap experiment, not a finding.",
-  "generated_utc": "2026-10-29T01:58:36+00:00",
+  "generated_utc": "2026-10-29T01:58:46+00:00",
   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
   "repository": "https://github.com/betsyisaac/literature-comb-ledger",
   "upstream_ledgers": "https://github.com/bambamramfan/literature-comb",
