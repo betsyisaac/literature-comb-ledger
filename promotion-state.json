@@ -3,23 +3,30 @@
   "bambamramfan:2026-10-16 | erdos-open | score 5 | DESTINATION: issue/PR draft ready": {
     "outcome": "promoted",
     "lc_id": "LC-0001",
-    "date_checked": "2026-10-20",
-    "body_sha256": "a1bedec456d02f54852f58c69bcf869a8183c9eadc02a10e34b10ed36b96b759",
+    "date_checked": "2026-10-29",
+    "body_sha256": "70d04e358af5abfb1142d7a9e85265eab16b19a1f8c4fb44f1433d5f3c380e65",
     "notes": [
-      "2026-10-20: upstream retracted; LC-0001 flipped to rejected"
+      "2026-10-20: upstream retracted; LC-0001 flipped to rejected",
+      "2026-10-29: cosmetic upstream edit: downstream LC-0001 backlink added"
     ]
   },
   "bambamramfan:2026-10-16 | cauris | score 6.5 | DESTINATION: undecided": {
     "outcome": "promoted",
     "lc_id": "LC-0002",
-    "date_checked": "2026-10-20",
-    "body_sha256": "16f8b37c06c4154b5e27ee2529644c5cf679cc2c4f7fba2280662becf0527fd2"
+    "date_checked": "2026-10-29",
+    "body_sha256": "ddbf2650a013f931925e6df0fb308d22bd4dbe663a36720a0fa04fcc98d85ca7",
+    "notes": [
+      "2026-10-29: cosmetic upstream edit: downstream LC-0002 backlink added"
+    ]
   },
   "bambamramfan:2026-10-19 | cauris | ~6/10 | DESTINATION: undecided": {
     "outcome": "promoted",
     "lc_id": "LC-0003",
-    "date_checked": "2026-10-20",
-    "body_sha256": "05fa1482bb6bcc8d47ca926133dba4cd61e045a5663beefb7668ddf8b3e506bd"
+    "date_checked": "2026-10-29",
+    "body_sha256": "82d40b037601d81fa954ec7ff17a5eb396a2e421a4d231e9d946ff168d63842a",
+    "notes": [
+      "2026-10-29: cosmetic upstream edit: downstream LC-0003 backlink added"
+    ]
   },
   "bambamramfan:2026-10-19 | cauris | WEAK (3/10 at best) | DESTINATION: undecided": {
     "outcome": "skipped",
@@ -30,8 +37,11 @@
   "bambamramfan:2026-10-20 | cacao-cadmium | score 7/6/6 (3 of 3 survived) | DESTINATION: undecided": {
     "outcome": "promoted",
     "lc_id": "LC-0004",
-    "date_checked": "2026-10-20",
-    "body_sha256": "c756f3bfb291a402938cb6e6357931f07c22abf55b8a97c008dd33fdac1fb67e"
+    "date_checked": "2026-10-29",
+    "body_sha256": "151294d5de045e2409a0e1e244e59fd14d7c3cf426288280537f67a693cab795",
+    "notes": [
+      "2026-10-29: cosmetic upstream edit: downstream LC-0004 backlink added"
+    ]
   },
   "bambamramfan:2026-10-20 | apple-replant-etiology | WEAK (6/4/4, survived only because nobody voted refuted) | DESTINATION: undecided": {
     "outcome": "skipped",
@@ -54,8 +64,11 @@
   "bambamramfan:2026-10-20 (scheduled run, batch 4) — inp-secondary-ice": {
     "outcome": "promoted",
     "lc_id": "LC-0005",
-    "date_checked": "2026-10-20",
-    "body_sha256": "0f912698e75c6624ed1240ed5c4eaaa8ee7bd203d3d6a04d677b9a83d9652848"
+    "date_checked": "2026-10-29",
+    "body_sha256": "9e4c3b6cb0018d7b35bcbd6965fd4229e27878fe2e8648d7e384db8c2ede9b9e",
+    "notes": [
+      "2026-10-29: cosmetic upstream edit: downstream LC-0005 backlink added"
+    ]
   },
   "bambamramfan:2026-10-20 (scheduled run, batch 7) — zhf_core_temp_transient_deconvolution": {
     "outcome": "skipped",
@@ -69,24 +82,26 @@
     "date_checked": "2026-10-20",
     "body_sha256": "818d3388857ce0c51bdfdabfd6d45f29aba57337dd4a328e3ac716d2d539d006"
   },
-  "_last_upstream_commit": "377700caf97fa2c19b3c8410dbff3b1373feee50",
+  "_last_upstream_commit": "12402138270e6f3a5bcfba7b956b0d2b734c5e02",
   "bambamramfan:2026-10-21 | tial_hot_salt_scc_300_500C | scores 7/5/3 (1 of 3 refuted) | DESTINATION: undecided": {
     "outcome": "promoted",
     "lc_id": "LC-0006",
     "notes": [
-      "2026-10-22: scores 7/5/3; TiAl HSSCC accelerator mechanism promoted with two-step cheap check (handbook ILL + HCl-evolution screen)"
+      "2026-10-22: scores 7/5/3; TiAl HSSCC accelerator mechanism promoted with two-step cheap check (handbook ILL + HCl-evolution screen)",
+      "2026-10-29: cosmetic upstream edit: downstream LC-0006 backlink added"
     ],
-    "body_sha256": "d87707664989ec938816339ff3c404648dcf7063f36e478ca07dccc99a4dad3c",
-    "date_checked": "2026-10-22"
+    "body_sha256": "35ae05b0799ad90ff5e4ab274e978477fddcc68cdf4dc2a4f58fb1d7098d343b",
+    "date_checked": "2026-10-29"
   },
   "bambamramfan:2026-10-21 | glass-core-static-fatigue | scores 8/5/5 (0 of 3 refuted) | DESTINATION: undecided": {
     "outcome": "promoted",
     "lc_id": "LC-0007",
     "notes": [
-      "2026-10-22: scores 8/5/5, 0 refuted; W&B 1970 Table II -> glass-core lifetime; merged with 8/3/7 sibling"
+      "2026-10-22: scores 8/5/5, 0 refuted; W&B 1970 Table II -> glass-core lifetime; merged with 8/3/7 sibling",
+      "2026-10-29: cosmetic upstream edit: downstream LC-0007 backlink added"
     ],
-    "body_sha256": "5ab7b1eeb157f2946c218dad0a3e1652fda4287f7d677e0c9bfc856d673f3a89",
-    "date_checked": "2026-10-22"
+    "body_sha256": "39c2b619778beac6527e706a9d4a895a1d55019ffc3f247f3cb5b01e059bbf21",
+    "date_checked": "2026-10-29"
   },
   "bambamramfan:2026-10-21 | glass-core-static-fatigue | scores 8/3/7 (1 of 3 refuted) | DESTINATION: undecided": {
     "outcome": "promoted",
@@ -101,37 +116,41 @@
     "outcome": "promoted",
     "lc_id": "LC-0008",
     "notes": [
-      "2026-10-22: scores 6/6/3; narrowed to annual seeding-time snapshot ending 1934; Cole & Mathews / Rogler & Haas / SSSAJ 1954 flagged as broader denominator"
+      "2026-10-22: scores 6/6/3; narrowed to annual seeding-time snapshot ending 1934; Cole & Mathews / Rogler & Haas / SSSAJ 1954 flagged as broader denominator",
+      "2026-10-29: cosmetic upstream edit: downstream LC-0008 backlink added"
     ],
-    "body_sha256": "c997efa870f4397499cc32706dab9049fcddc0a0246b48dc20347274347d69f6",
-    "date_checked": "2026-10-22"
+    "body_sha256": "4f5213da322c5c7047c7e4084594c72ff44cc735a4b6238e60eb181740fc8415",
+    "date_checked": "2026-10-29"
   },
   "bambamramfan:2026-10-21 | firn_tunnel_closure_calibration | scores 7/6/5 (0 of 3 refuted) | DESTINATION: undecided": {
     "outcome": "promoted",
     "lc_id": "LC-0009",
     "notes": [
-      "2026-10-22: scores 7/6/5, 0 refuted; reframed cheap check (oblique diameters, not three-way ratio) per upstream verifier algebra"
+      "2026-10-22: scores 7/6/5, 0 refuted; reframed cheap check (oblique diameters, not three-way ratio) per upstream verifier algebra",
+      "2026-10-29: cosmetic upstream edit: downstream LC-0009 backlink added"
     ],
-    "body_sha256": "92bd49952a8ea2a6ec1e38cca93ea8ec72f6a0367a64f9d82005978f1bdaf7bd",
-    "date_checked": "2026-10-22"
+    "body_sha256": "c0c7cba8dcd8d8cad48f17f21c6e75502e3ff7538d33595c4e659ba0f5b9eee7",
+    "date_checked": "2026-10-29"
   },
   "bambamramfan:2026-10-21 | lusatia-flowliq-population | scores 7/4/3 (1 of 3 refuted) | DESTINATION: undecided": {
     "outcome": "promoted",
     "lc_id": "LC-0010",
     "notes": [
-      "2026-10-22: scores 7/4/3; reframed as retrodiction on ~10 pre-failure-terrain flow failures (Nerlerk, Wachusett, Fundao etc.), not against Ghahramani's post-event-only set"
+      "2026-10-22: scores 7/4/3; reframed as retrodiction on ~10 pre-failure-terrain flow failures (Nerlerk, Wachusett, Fundao etc.), not against Ghahramani's post-event-only set",
+      "2026-10-29: cosmetic upstream edit: downstream LC-0010 backlink added"
     ],
-    "body_sha256": "4ebf991c7897eda8be83c7ffcb2b0f5d40ab7e203c1afa788377ebcdc13f67c4",
-    "date_checked": "2026-10-22"
+    "body_sha256": "55efc2be4b55b8f2b25a5f7658c50e0378af76b2a3c58a531867dcc02bf5c912",
+    "date_checked": "2026-10-29"
   },
   "bambamramfan:2026-10-21 | grain-storage-hermetic-insect-control | scores 7/5/2 (1 of 3 refuted) | DESTINATION: undecided": {
     "outcome": "promoted",
     "lc_id": "LC-0011",
     "notes": [
-      "2026-10-22: scores 7/5/2; filled-bag pressure-decay half-life vs liner OTR; indoor/outdoor and two-fill-level controls folded in to address thermal and compliance confounds"
+      "2026-10-22: scores 7/5/2; filled-bag pressure-decay half-life vs liner OTR; indoor/outdoor and two-fill-level controls folded in to address thermal and compliance confounds",
+      "2026-10-29: cosmetic upstream edit: downstream LC-0011 backlink added"
     ],
-    "body_sha256": "d7cd22021df5613784b5481b272809c8ec23d09ab7fc9ffb7119acd652260bb8",
-    "date_checked": "2026-10-22"
+    "body_sha256": "3c7e44e002761ccf620804a7dca064cf3f3dec881b8ed5c09a807296ce068ac9",
+    "date_checked": "2026-10-29"
   },
   "bambamramfan:2026-10-21 | glass-core-static-fatigue | scores 7/4/2 (1 of 3 refuted) | DESTINATION: undecided": {
     "outcome": "skipped",
@@ -179,18 +198,20 @@
     "outcome": "promoted",
     "lc_id": "LC-0012",
     "notes": [
-      "2026-10-27: fluorine-effect sign-inversion on gamma-TiAl under hot salt SCC; distinct from LC-0006 (alumina catalysis)"
+      "2026-10-27: fluorine-effect sign-inversion on gamma-TiAl under hot salt SCC; distinct from LC-0006 (alumina catalysis)",
+      "2026-10-29: cosmetic upstream edit: downstream LC-0012 backlink added"
     ],
-    "body_sha256": "34e3dfe9b86233447b41f6f408346f7ed6e3689bc55f24e1864e65f00e1f4a5d",
-    "date_checked": "2026-10-27"
+    "body_sha256": "6afd45847abbdfbde25624ae293bdc313bb040363e8d9c2e3453398a79c449b5",
+    "date_checked": "2026-10-29"
   },
   "bambamramfan:2026-10-26 | agx_constant_ion_activity_precipitation | scores 7/6/3 (1 of 3 refuted) | DESTINATION: undecided": {
     "outcome": "promoted",
     "lc_id": "LC-0013",
     "notes": [
-      "2026-10-27: photographic pAg control transfer to CsPbX3 LARP; first check is ISE Nernstian response in solvent"
+      "2026-10-27: photographic pAg control transfer to CsPbX3 LARP; first check is ISE Nernstian response in solvent",
+      "2026-10-29: cosmetic upstream edit: downstream LC-0013 backlink added"
     ],
-    "body_sha256": "f9aa3133e1166600cbcd43f9ada0f78b2dbea204dbf4a8b05912cacd361a17e0",
-    "date_checked": "2026-10-27"
+    "body_sha256": "3024b59811a8a94bfae1107c087736fbf08f439ce2fd3cda6ea8cda80d38c96a",
+    "date_checked": "2026-10-29"
   }
 }

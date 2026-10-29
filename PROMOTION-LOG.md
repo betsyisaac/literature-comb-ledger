@@ -7,6 +7,34 @@ complete result, not a gap.
 
 ---
 
+## 2026-10-29 (session 9ceb8628)
+
+Consistency: leads/ == leads.csv (14 leads), but Google Sheet is 17h stale
+and missing LC-0012 and LC-0013 (12 leads on sheet). Apps Script timer
+appears stopped or erroring; escalated to Betsy (needs her hands in Apps
+Script editor — I cannot reach it).
+
+Read 1 contributor ledger (`bambamramfan/surviving.md`). Upstream advanced
+377700c → 1240213. 0 new / 0 renamed / 13 changed / 0 vanished. Comment
+feed: 3 threads total, none new or updated.
+
+All 13 "changed" entries are the same edit: upstream added a one-line
+"Downstream: LC-#### in the betsyisaac public ledger … Cite this LC
+number in any correction" backlink paragraph near the top of each entry.
+No claims, citations, verifier results, caveats, scores, or destinations
+changed. Cosmetic by the step-6a definition; no lead files touched.
+Recorded for all 13 (LC-0001 through LC-0013) so the same edit is not
+reported again tomorrow.
+
+Needs Betsy:
+
+- The public sheet is missing LC-0012 and LC-0013; the hourly
+  `leads.csv` → Sheet refresh has been stopped for ~17 hours. Fix: Sheet
+  → Extensions → Apps Script → run `setup` to reinstall the timer, then
+  check Executions for errors. OPEN line added to the Desktop file.
+
+---
+
 ## 2026-10-27 (session c82daa22)
 
 Read 1 contributor ledger (`bambamramfan/surviving.md`). Upstream advanced
