@@ -7,6 +7,34 @@ complete result, not a gap.
 
 ---
 
+## 2026-11-03 (session 99b94e0c)
+
+Consistency: FAULT (the check itself could not run). The Sheet CSV export
+URL returned HTTP 400 Bad Request, so the three-way compare could not
+complete. Per the "a check that could not be performed is a failed check"
+rule, this is a fault, not a pass. First occurrence of this specific
+failure mode (yesterday the check completed and reported the Sheet stale);
+instructions say to escalate only if it fails this way two runs in a row,
+so logging it and watching for tomorrow. The pre-existing Sheet-stale
+escalation from 2026-10-29 remains open on Betsy's Desktop file. Script
+counts noted in passing: lead_files=14, leads_csv=14 (agree in the two
+layers that WERE reachable); docs_leads_json=13 is a derived site-build
+artefact, not one of the three canonical layers.
+
+Read 1 contributor ledger (`bambamramfan/surviving.md`). Upstream commit
+unchanged since 10-29 (12402138). 0 new / 0 renamed / 0 changed / 0
+vanished. Comment feed: 3 threads total, none new or updated.
+
+No open PR on the ledger repo; PR gate was clear.
+
+Nothing to promote, nothing to flip. Bookkeeping-only commit to main.
+
+Needs Betsy: nothing new today. The 2026-10-29 Sheet-stale OPEN line is
+still on her Desktop file; running the Apps Script `setup` when convenient
+would both clear that and (likely) make the CSV export reachable again.
+
+---
+
 ## 2026-11-02 (session a1036a7e)
 
 Consistency: leads/ == leads.csv (14 leads); Google Sheet still stale
