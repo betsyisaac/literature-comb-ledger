@@ -7,6 +7,25 @@ complete result, not a gap.
 
 ---
 
+## 2026-11-04 (session 41535c4f)
+
+Consistency: leads/ == leads.csv == Sheet, OK (ref 75ebf17cfaee;
+lead_files=14, leads_csv=14, sheet=14; docs_leads_json=13 is a derived
+site-build artefact, not canonical). Yesterday's check-itself fault did
+not recur, so no escalation; the pre-existing Sheet-stale escalation from
+2026-10-29 was resolved by the layers now agreeing.
+
+Read 1 contributor ledger (`bambamramfan/surviving.md`). Upstream commit
+unchanged since 10-29 (12402138). 0 new / 0 renamed / 0 changed / 0
+vanished. Comment feed: 3 threads total, none new or updated.
+
+No open PR on the ledger repo; PR gate was clear. No queued replies to
+flush.
+
+Nothing to promote, nothing to flip. Bookkeeping-only commit to main.
+
+---
+
 ## 2026-11-03 (session 99b94e0c)
 
 Consistency: FAULT (the check itself could not run). The Sheet CSV export
