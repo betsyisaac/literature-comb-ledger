@@ -7,6 +7,29 @@ complete result, not a gap.
 
 ---
 
+## 2026-11-07 (session b1de82a4)
+
+Consistency: FAULT (the check itself could not run). Fetching the Sheet
+CSV export failed with `[Errno 54] Connection reset by peer` — a network
+blip, not the HTTP 400 pattern seen on 11-03. Yesterday (11-06) the check
+completed cleanly, so this is a first occurrence of the current failure
+mode and does not meet the two-in-a-row escalation bar. Script counts in
+passing: lead_files=14, leads_csv=14 (the two reachable layers agree);
+docs_leads_json=13 is the derived site-build artefact, not canonical.
+
+Read 1 contributor ledger (`bambamramfan/surviving.md`). Upstream commit
+unchanged since 10-29 (12402138). 0 new / 0 renamed / 0 changed / 0
+vanished. Comment feed: 3 threads total, none new or updated.
+
+No open PR on the ledger repo; PR gate was clear. No queued replies to
+flush.
+
+Nothing to promote, nothing to flip. Bookkeeping-only commit to main.
+
+Needs Betsy: nothing new today.
+
+---
+
 ## 2026-11-06 (session 77497c91)
 
 Consistency: leads/ == leads.csv == Sheet, OK (ref 4aed668f54f2;
