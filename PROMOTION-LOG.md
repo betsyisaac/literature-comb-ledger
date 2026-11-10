@@ -7,6 +7,24 @@ complete result, not a gap.
 
 ---
 
+## 2026-11-10 (session f305e24a)
+
+Consistency: leads/ == leads.csv == Sheet, OK (ref 7db56e565b74; counts
+lead_files=14, leads_csv=14, sheet=14; docs_leads_json=13 is the derived
+site-build artefact, not canonical).
+
+No open PRs gating. Read 1 contributor ledger (`bambamramfan/surviving.md`).
+Upstream commit unchanged since 10-29 (12402138). 0 new / 0 renamed / 0
+changed / 0 vanished.
+
+Comment feed: curl to the Apps Script endpoint timed out twice (60s single
+attempt, then a longer retry that didn't return). Single-day blip; the feed
+worked fine yesterday. Not escalated. If it fails again tomorrow, escalate.
+
+Nothing new today. Bookkeeping only.
+
+---
+
 ## 2026-11-09 (session 720bb8d7)
 
 Consistency: leads/ == leads.csv == Sheet, OK (ref 6b1c0ae8ce33; counts
