@@ -532,7 +532,7 @@ def build_html(leads, stamp, checked):
     o.append("<head>")
     o.append('<meta charset="utf-8">')
     o.append('<meta name="viewport" content="width=device-width,initial-scale=1">')
-    o.append("<title>Literature Comb — %d surviving research leads, each with a cheap next check</title>" % len(real))
+    o.append("<title>Literature Comb — %d research leads (%s), each with a cheap next check</title>" % (len(real), html.escape(tally)))
     o.append('<meta name="description" content="%s">' % html.escape(truncate(DESCRIPTION, 300)))
     o.append('<link rel="canonical" href="%s">' % SITE_URL)
     o.append('<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">')
@@ -552,7 +552,7 @@ def build_html(leads, stamp, checked):
     o.append('<div class="wrap">')
     o.append("<header>")
     o.append("<h1>Literature Comb — surviving leads</h1>")
-    o.append('<p class="sub">%d open research leads, each pairing an old or cross-field source with a modern problem that has never cited it, and each naming the cheapest check that would settle it.</p>' % len(real))
+    o.append('<p class="sub">%d research leads (%s), each pairing an old or cross-field source with a modern problem that has never cited it, and each naming the cheapest check that would settle it.</p>' % (len(real), html.escape(tally)))
     # Two stamps (2026-11-11). Without the second, a quiet fortnight upstream
     # made a healthy page look abandoned: "Last updated" only moves when a
     # lead changes, and most days nothing does.
