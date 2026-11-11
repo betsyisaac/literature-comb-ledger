@@ -42,8 +42,16 @@ it curates a public-facing subset.
   `leads/` instead; both derived files get silently overwritten on the next
   build.
 - `.github/workflows/build.yml` runs `scripts/build.py` automatically on
-  every push to `main` that touches `leads/` or the build script, so the
-  generated files never go stale.
+  every push to `main` that touches `leads/`, the build scripts, or
+  `last-check.txt`, so the generated files never go stale.
+- The public page carries two timestamps. **Last updated** is when any
+  lead's content last changed; it stays put through quiet weeks, and a
+  rebuild over unchanged leads produces byte-identical output.
+  **Last upstream check** is read from `last-check.txt`, which the
+  promotion routine rewrites at the end of every run that checked the
+  upstream ledgers, including the many that find nothing. If that second
+  stamp is more than a day or two old, the routine has either stopped
+  running or is paused waiting for one of its pull requests to be merged.
 
 Adding a lead is: write one new file in `leads/`, open a pull request,
 Betsy reviews and merges. That's the same human-glance-before-publish gate

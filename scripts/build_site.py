@@ -47,12 +47,19 @@ import html
 import json
 import pathlib
 import re
+import sys
 
 # Imported rather than re-implemented: a second frontmatter parser would be a
-# second thing to drift. build.py owns parsing and ordering.
-from build import ROOT, load_all_leads, flatten, truncate, STATUS_ORDER
+# second thing to drift. build.py owns parsing and ordering, and also owns the
+# content stamp ("Last updated"), so the page and index.md can never disagree.
+from build import (ROOT, load_all_leads, flatten, truncate, STATUS_ORDER,
+                   read_previous_stamp, stamp_to_iso)
 
 DOCS = ROOT / "docs"
+# Written by the promotion routine at the end of every run that actually
+# checked upstream (including the many quiet ones). One line, ISO 8601 with a
+# timezone, e.g. 2026-11-12T12:04:31Z. Never written by this script.
+LAST_CHECK = ROOT / "last-check.txt"
 SITE_URL = "https://betsyisaac.github.io/literature-comb-ledger/"
 REPO_URL = "https://github.com/betsyisaac/literature-comb-ledger"
 UPSTREAM_URL = "https://github.com/bambamramfan/literature-comb"
@@ -128,13 +135,51 @@ def lead_public_dict(lead):
     }
 
 
-def build_leads_json(leads, stamp):
+def read_last_check():
+    """The promotion routine's heartbeat, as an aware UTC datetime, or None.
+
+    Deliberately forgiving in one direction only. A missing file means the
+    routine hasn't written one yet, so the line is simply left off the page.
+    An UNREADABLE file is a routine bug: warn loudly (GitHub Actions shows
+    ::warning:: lines on the run page) but still publish, because a broken
+    heartbeat must never block a real lead change from reaching the page.
+    With the line missing, the page then looks stale, which is the true
+    state of things.
+    """
+    if not LAST_CHECK.exists():
+        return None
+    lines = LAST_CHECK.read_text(encoding="utf-8").strip().splitlines()
+    raw = lines[0].strip() if lines else ""
+    s = raw[:-1] + "+00:00" if raw.endswith(("Z", "z")) else raw
+    try:
+        dt = datetime.datetime.fromisoformat(s)
+        if dt.tzinfo is None:
+            raise ValueError("no timezone")
+    except ValueError as e:
+        print("::warning::last-check.txt is unreadable (%r: %s); leaving the "
+              "upstream-check line off the page" % (raw, e), file=sys.stderr)
+        return None
+    return dt.astimezone(datetime.timezone.utc).replace(microsecond=0)
+
+
+def human(dt_or_iso):
+    """'2026-11-12T12:04:31+00:00' or a datetime -> '2026-11-12 12:04 UTC'."""
+    if isinstance(dt_or_iso, str):
+        dt_or_iso = datetime.datetime.fromisoformat(dt_or_iso)
+    return dt_or_iso.strftime("%Y-%m-%d %H:%M UTC")
+
+
+def build_leads_json(leads, stamp, checked):
     real = [l for l in leads if l.get("status") != "example"]
     return json.dumps(
         {
             "name": "Literature Comb — surviving leads",
             "description": DESCRIPTION,
-            "generated_utc": stamp,
+            # Was "generated_utc" (time of the build) until 2026-11-11. Split
+            # in two because the build time carried no information: it moved
+            # on every run whether or not anything had changed.
+            "last_updated_utc": stamp,
+            "last_upstream_check_utc": checked.isoformat() if checked else None,
             "license": "https://creativecommons.org/publicdomain/zero/1.0/",
             "repository": REPO_URL,
             "upstream_ledgers": UPSTREAM_URL,
@@ -298,7 +343,7 @@ def build_llms_txt(leads, stamp):
             truncate(l.get("headline", ""), 240),
         ))
     out.append("")
-    out.append("Generated %s. Do not hand-edit; see scripts/build_site.py.\n" % stamp)
+    out.append("Lead content last changed %s. Do not hand-edit; see scripts/build_site.py.\n" % human(stamp))
     return "\n".join(out)
 
 
@@ -467,7 +512,7 @@ JS = """
 """
 
 
-def build_html(leads, stamp):
+def build_html(leads, stamp, checked):
     real = [l for l in leads if l.get("status") != "example"]
     statuses = []
     for l in real:
@@ -507,7 +552,15 @@ def build_html(leads, stamp):
     o.append('<div class="wrap">')
     o.append("<header>")
     o.append("<h1>Literature Comb — surviving leads</h1>")
-    o.append('<p class="sub">%d open research leads, each pairing an old or cross-field source with a modern problem that has never cited it, and each naming the cheapest check that would settle it. Last updated %s.</p>' % (len(real), html.escape(stamp.replace("T", " ").replace("+00:00", " UTC"))))
+    o.append('<p class="sub">%d open research leads, each pairing an old or cross-field source with a modern problem that has never cited it, and each naming the cheapest check that would settle it.</p>' % len(real))
+    # Two stamps (2026-11-11). Without the second, a quiet fortnight upstream
+    # made a healthy page look abandoned: "Last updated" only moves when a
+    # lead changes, and most days nothing does.
+    stamps = ['Last updated <time datetime="%s">%s</time>' % (html.escape(stamp), html.escape(human(stamp)))]
+    if checked:
+        stamps.append('Last upstream check <time datetime="%s">%s</time> <span class="hide-sm">(daily; most days find nothing new)</span>' % (
+            html.escape(checked.isoformat()), html.escape(human(checked))))
+    o.append('<p class="meta" id="freshness">%s</p>' % " &middot; ".join(stamps))
     o.append('<p class="lede">%s</p>' % html.escape(DESCRIPTION))
     o.append("</header>")
 
@@ -587,7 +640,7 @@ def build_html(leads, stamp):
     o.append("<footer>")
     o.append("<p>Maintained by <a href=\"https://github.com/betsyisaac\">@betsyisaac</a>. Leads originate in the <a href=\"%s\">Literature Comb</a> project's per-contributor ledgers, including the ones that did not survive. Corrections: <a href=\"%s\" rel=\"nofollow noopener\">comment on the public sheet</a> naming the LC number and linking a source.</p>" % (UPSTREAM_URL, SHEET_URL))
     o.append("<p><strong>Do not hand-edit this page.</strong> It is generated by <code>scripts/build_site.py</code> from <code>leads/*.md</code> and rebuilt on every push to <code>main</code>. Edit the lead file, not this.</p>")
-    o.append("<p>Generated %s. Dedicated to the public domain under <a href=\"https://creativecommons.org/publicdomain/zero/1.0/\" rel=\"license\">CC0 1.0</a>.</p>" % html.escape(stamp))
+    o.append("<p>Lead content last changed %s. Dedicated to the public domain under <a href=\"https://creativecommons.org/publicdomain/zero/1.0/\" rel=\"license\">CC0 1.0</a>.</p>" % html.escape(human(stamp)))
     o.append("</footer>")
     o.append("</div>")
     o.append("<script>%s</script>" % JS)
@@ -596,16 +649,29 @@ def build_html(leads, stamp):
     return "\n".join(o)
 
 
-def main():
+def main(content_stamp=None):
+    """content_stamp is build.py's "Last updated" ('YYYY-MM-DD HH:MM UTC').
+
+    Normally passed in by build.py. When this script is run on its own, it
+    reads the stamp back out of index.md, so it can never invent a different
+    one. No clock is read anywhere in this file: given the same leads/,
+    index.md and last-check.txt it produces byte-identical output.
+    """
     leads = load_all_leads()
-    stamp = datetime.datetime.now(datetime.timezone.utc).replace(
-        microsecond=0).isoformat()
+    if content_stamp is None:
+        content_stamp, _ = read_previous_stamp()
+        if content_stamp is None:
+            print("error: index.md has no 'Last updated' row; run "
+                  "scripts/build.py, which builds this site too", file=sys.stderr)
+            return 1
+    stamp = stamp_to_iso(content_stamp)
+    checked = read_last_check()
     DOCS.mkdir(exist_ok=True)
     # Tells GitHub Pages to serve these files as-is instead of running Jekyll
     # over them. Without it, Jekyll can mangle or drop files.
     (DOCS / ".nojekyll").write_text("", encoding="utf-8")
-    (DOCS / "index.html").write_text(build_html(leads, stamp), encoding="utf-8")
-    (DOCS / "leads.json").write_text(build_leads_json(leads, stamp), encoding="utf-8")
+    (DOCS / "index.html").write_text(build_html(leads, stamp, checked), encoding="utf-8")
+    (DOCS / "leads.json").write_text(build_leads_json(leads, stamp, checked), encoding="utf-8")
     (DOCS / "llms.txt").write_text(build_llms_txt(leads, stamp), encoding="utf-8")
     (DOCS / "robots.txt").write_text(build_robots(), encoding="utf-8")
     (DOCS / "sitemap.xml").write_text(build_sitemap(stamp), encoding="utf-8")
