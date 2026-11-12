@@ -7,6 +7,49 @@ complete result, not a gap.
 
 ---
 
+## 2026-11-12 (session 84611564)
+
+Consistency: leads/ == leads.csv == Sheet, OK (ref 0af1ea4c7fd5; counts
+lead_files=14, leads_csv=14, sheet=14; docs_leads_json=13 is the derived
+site-build artefact).
+
+No open PRs gating. Read 1 contributor ledger (`bambamramfan/surviving.md`).
+Upstream advanced from 12402138 to 2d5adaaa. 9 new / 0 renamed / 0 changed /
+0 vanished.
+
+Promoted:
+- **LC-0014** `ebonite-light-acid-vs-inverse-vulcanised-ageing` (scores
+  6/6/5, 0 of 3 refuted). Curtis 1915's humidity-vs-surface-resistivity
+  protocol on sunlight-aged ebonite, proposed as a cheap screening readout
+  for sulfur-oxyacid photo-ageing of inverse-vulcanised (IV) polymers. All
+  three upstream verifiers read Curtis independently. Caveat 7 is carried
+  verbatim: Schmitt 2026 SI is unread (404 today) and three RCT follow-up
+  papers remain paywalled; if Schmitt's SI already reports surface sulfate
+  the lead's novelty narrows but the cheap check still stands.
+
+Skipped (8):
+- `otec-riser-cable-lead-sheath-high-cycle-fatigue` (6/5/4, 0 refuted):
+  unverified absence. The entry's "modern work does not cite the 1981
+  Simplex OTEC paper" claim rests on reference lists the verifiers could
+  not open — caveat 6 names CIGRE TB 862 / 623 and the NTNU theses as
+  paywall-/JS-blocked. Either compilation citing the Simplex paper would
+  collapse the central claim, so this is the LC-0001 rule again.
+- `ghost-float-phase-icing-eole-failure-geography` — labelled WEAK (median
+  3, one refuted).
+- `afswp-forest-blowdown-vs-pdc-tree-proxy` — WEAK, primary_source_undercuts.
+- `amalgam_overvoltage_poisons_to_Li_NRR` — WEAK (one refuted, low 2).
+- `fever_cabinet_human_thermal_dose` — WEAK, primary_source_undercuts.
+- `immersion_cooling_against_raised_setpoint (Hare 1898 per-bath)` — WEAK,
+  one refuted and two primary_source_undercuts flags.
+- `immersion_cooling_against_raised_setpoint` — WEAK, primary_source_undercuts.
+- `shelter_habitability_vent_rate` — WEAK, primary_source_undercuts.
+
+Comment feed: 3 threads total, 0 new / 0 updated.
+
+Needs Betsy: none.
+
+---
+
 ## 2026-11-11 (session 8865b8b3)
 
 Consistency: leads/ == leads.csv == Sheet, OK (ref 45ba7197592e; counts

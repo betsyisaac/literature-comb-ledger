@@ -82,7 +82,7 @@
     "date_checked": "2026-10-20",
     "body_sha256": "818d3388857ce0c51bdfdabfd6d45f29aba57337dd4a328e3ac716d2d539d006"
   },
-  "_last_upstream_commit": "12402138270e6f3a5bcfba7b956b0d2b734c5e02",
+  "_last_upstream_commit": "2d5adaaa8c2eac9ec71db36f1197cb14b93ac6d1",
   "bambamramfan:2026-10-21 | tial_hot_salt_scc_300_500C | scores 7/5/3 (1 of 3 refuted) | DESTINATION: undecided": {
     "outcome": "promoted",
     "lc_id": "LC-0006",
@@ -213,5 +213,62 @@
     ],
     "body_sha256": "3024b59811a8a94bfae1107c087736fbf08f439ce2fd3cda6ea8cda80d38c96a",
     "date_checked": "2026-10-29"
+  },
+  "bambamramfan:2026-11-12 | ebonite-light-acid-vs-inverse-vulcanised-ageing | scores 6/6/5 (0 of 3 refuted) | DESTINATION: undecided": {
+    "outcome": "promoted",
+    "lc_id": "LC-0014",
+    "notes": [
+      "2026-11-12: Curtis 1915 humidity-resistivity protocol as cheap screen for sulfate photo-ageing of inverse-vulcanised polymers"
+    ],
+    "body_sha256": "dcd676c17d228e1cf17e81b4bf672e0a563de7c38d3fd9b0011e36cd45914789",
+    "date_checked": "2026-11-12"
+  },
+  "bambamramfan:2026-11-11 | otec-riser-cable-lead-sheath-high-cycle-fatigue | scores 6/5/4 (0 of 3 refuted) | DESTINATION: undecided": {
+    "outcome": "skipped",
+    "reason": "unverified absence: caveat (6) states CIGRE TB 862/623 reference lists and the NTNU theses were not opened (paywall/JS app); if either compilation cites the 1981 Simplex paper the 'uncited' claim collapses",
+    "body_sha256": "b3f4bd0a08ec600da65b6434ac54a9b99d5ac2efbec0f12d1262f951ae49af2f",
+    "date_checked": "2026-11-12"
+  },
+  "bambamramfan:2026-11-11 | ghost-float-phase-icing-eole-failure-geography | WEAK (scores 6/3/4, 1 of 3 refuted) | DESTINATION: undecided": {
+    "outcome": "skipped",
+    "reason": "labelled WEAK by the source entry (median 3, one refuted)",
+    "body_sha256": "1461109a243e67de2877a6f5edba956b6c94b7e3cdea280ade6684fdb57d06f1",
+    "date_checked": "2026-11-12"
+  },
+  "bambamramfan:2026-11-12 | afswp-forest-blowdown-vs-pdc-tree-proxy | WEAK (scores 5/5/4, 0 of 3 refuted, 1 primary_source_undercuts_lead) | DESTINATION: undecided": {
+    "outcome": "skipped",
+    "reason": "labelled WEAK by the source; one verifier flagged primary_source_undercuts_lead",
+    "body_sha256": "dbcabe171a9144fc28d6253de1a09d49ebe19f906a21a32a1f1128417dc55925",
+    "date_checked": "2026-11-12"
+  },
+  "bambamramfan:2026-11-12 | amalgam_overvoltage_poisons_to_Li_NRR | WEAK (scores 5/5/2, 1 of 3 refuted) | DESTINATION: undecided": {
+    "outcome": "skipped",
+    "reason": "labelled WEAK by the source entry (one refuted, lowest score 2)",
+    "body_sha256": "9f59fc4aa41d2619c7bc2e5a2b912f8049a71fad2134476d99104ae91a9bbce9",
+    "date_checked": "2026-11-12"
+  },
+  "bambamramfan:2026-11-12 | fever_cabinet_human_thermal_dose | WEAK (scores 6/5/3.5, 0 of 3 refuted, 1 primary_source_undercuts_lead) | DESTINATION: undecided": {
+    "outcome": "skipped",
+    "reason": "labelled WEAK by the source; one verifier flagged primary_source_undercuts_lead",
+    "body_sha256": "68309f0c16d83004a4ca4dffea93d0cd37d988081f4e29b7d80870b7d398e365",
+    "date_checked": "2026-11-12"
+  },
+  "bambamramfan:2026-11-12 | immersion_cooling_against_raised_setpoint (Hare 1898 per-bath safety record) | WEAK (scores 4/4/3, 1 of 3 refuted, 2 primary_source_undercuts_lead) | DESTINATION: undecided": {
+    "outcome": "skipped",
+    "reason": "labelled WEAK by the source; one refuted and two verifiers flagged primary_source_undercuts_lead",
+    "body_sha256": "d2b83beccc395763bd5ba3199c73428deacbda27335aa5b6aa461d89d1117991",
+    "date_checked": "2026-11-12"
+  },
+  "bambamramfan:2026-11-12 | immersion_cooling_against_raised_setpoint | WEAK (scores 4/5/3, 0 of 3 refuted, 1 primary_source_undercuts_lead) | DESTINATION: undecided": {
+    "outcome": "skipped",
+    "reason": "labelled WEAK by the source; one verifier flagged primary_source_undercuts_lead",
+    "body_sha256": "a88c30bfb1e75d789f9af448fbcf5e8a441d2fc8b615f99c083270bee6f01a4c",
+    "date_checked": "2026-11-12"
+  },
+  "bambamramfan:2026-11-12 | shelter_habitability_vent_rate | WEAK (scores 6/5/3, 0 of 3 refuted, 1 primary_source_undercuts_lead) | DESTINATION: undecided": {
+    "outcome": "skipped",
+    "reason": "labelled WEAK by the source; one verifier flagged primary_source_undercuts_lead",
+    "body_sha256": "8559cdd7da037e658e0cdf9697f606c3ab2bf03a38f3e70d3fed801d319165ae",
+    "date_checked": "2026-11-12"
   }
 }
