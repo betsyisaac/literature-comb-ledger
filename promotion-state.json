@@ -82,7 +82,7 @@
     "date_checked": "2026-10-20",
     "body_sha256": "818d3388857ce0c51bdfdabfd6d45f29aba57337dd4a328e3ac716d2d539d006"
   },
-  "_last_upstream_commit": "2d5adaaa8c2eac9ec71db36f1197cb14b93ac6d1",
+  "_last_upstream_commit": "d22cfa4cbb1f561f6913e9fdb7251679b845fc20",
   "bambamramfan:2026-10-21 | tial_hot_salt_scc_300_500C | scores 7/5/3 (1 of 3 refuted) | DESTINATION: undecided": {
     "outcome": "promoted",
     "lc_id": "LC-0006",
@@ -249,9 +249,12 @@
   },
   "bambamramfan:2026-11-12 | fever_cabinet_human_thermal_dose | WEAK (scores 6/5/3.5, 0 of 3 refuted, 1 primary_source_undercuts_lead) | DESTINATION: undecided": {
     "outcome": "skipped",
-    "reason": "labelled WEAK by the source; one verifier flagged primary_source_undercuts_lead",
-    "body_sha256": "68309f0c16d83004a4ca4dffea93d0cd37d988081f4e29b7d80870b7d398e365",
-    "date_checked": "2026-11-12"
+    "reason": "still WEAK upstream; addendum adds a second WEAK sub-lead (Gibson & Kopp 1938, 5/6/3, 1 refuted / 1 primary_source_undercuts_lead / 1 already_known); companion lead in same run was rejected",
+    "body_sha256": "862a3f896c232113f9cfc0d061305d7c8366d1e9eded8bab1ee9cf5530945efc",
+    "date_checked": "2026-11-18",
+    "notes": [
+      "2026-11-18: upstream added an addendum sub-lead; still WEAK overall"
+    ]
   },
   "bambamramfan:2026-11-12 | immersion_cooling_against_raised_setpoint (Hare 1898 per-bath safety record) | WEAK (scores 4/4/3, 1 of 3 refuted, 2 primary_source_undercuts_lead) | DESTINATION: undecided": {
     "outcome": "skipped",
@@ -270,5 +273,11 @@
     "reason": "labelled WEAK by the source; one verifier flagged primary_source_undercuts_lead",
     "body_sha256": "8559cdd7da037e658e0cdf9697f606c3ab2bf03a38f3e70d3fed801d319165ae",
     "date_checked": "2026-11-12"
+  },
+  "bambamramfan:2026-11-12 | na_oxygen_activity_wetting-lbl-chemisorption | WEAK (scores 6/3/5, median 5, 1 of 3 refuted, 1 already_known) | DESTINATION: undecided": {
+    "outcome": "skipped",
+    "reason": "labelled WEAK by the source; median 5, 1 of 3 refuted, 1 already_known; a verifier reports modern NASICON work with the opposite sign of the effect",
+    "body_sha256": "8d9eeac89cc99a8735ded19c3a5079e3f8ffe08fad47ed5b30cefcfc51e0b0b0",
+    "date_checked": "2026-11-18"
   }
 }

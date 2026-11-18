@@ -7,6 +7,33 @@ complete result, not a gap.
 
 ---
 
+## 2026-11-18 (session af2b74b2)
+
+Consistency: leads/ == leads.csv == Sheet, OK (ref bd9c581d20e9; counts
+lead_files=15, leads_csv=15, sheet=15; docs_leads_json=14 is the derived
+site-build artefact).
+
+No open PRs gating. Read 1 contributor ledger (`bambamramfan/surviving.md`).
+Upstream advanced from 2d5adaaa to d22cfa4c. 1 new / 0 renamed / 1 changed /
+0 vanished. No new or updated sheet comments.
+
+Promoted: none.
+
+Skipped (2):
+- `na_oxygen_activity_wetting-lbl-chemisorption` — labelled WEAK by source
+  (median 5; 1 of 3 refuted; 1 already_known). A verifier flagged modern
+  NASICON work (Cao et al., Sci. Bull. 2024) reporting the OPPOSITE sign of
+  the effect, which the source itself treats as the open sign question.
+- `fever_cabinet_human_thermal_dose` (changed; previously skipped
+  2026-11-12) — upstream added an addendum sub-lead (Gibson & Kopp, JCI
+  1938, scores 5/6/3, 1 refuted / 1 primary_source_undercuts_lead / 1
+  already_known). Still WEAK overall; companion lead in the same upstream
+  run was rejected. Re-skipped.
+
+No sheet comments actioned. No lead files touched. Bookkeeping-only commit.
+
+---
+
 ## 2026-11-12 (session 84611564)
 
 Consistency: leads/ == leads.csv == Sheet, OK (ref 0af1ea4c7fd5; counts
