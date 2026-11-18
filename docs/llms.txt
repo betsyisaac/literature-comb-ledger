@@ -32,8 +32,9 @@ Slash-separated numbers are ONE SCORE PER VERIFIER, out of 10 — not a fraction
 - `resolved`: the question has been settled
 - `rejected`: refuted, retracted, or downgraded upstream
 
-## Current leads (13)
+## Current leads (14)
 
+- **LC-0014** (open, 2026-11-12, score 6/6/5 (0 of 3 refuted)): In 1915 Curtis showed that sunlight-aged ebonite (hard rubber, roughly 30 wt% sulfur) loses its low-humidity surface-resistivity plateau because light plus air convert sulfur to hygroscopic sulfate films that a water soak removes. Inverse-…
 - **LC-0012** (open, 2026-10-27, score 7/6/2): On gamma-TiAl the 1969 fluoride-inhibits-hot-salt-SCC result may invert — because the surface fluoride that strips as volatile TiF4 at ~284 C on low-Al titanium shifts toward non-volatile AlF3 on a 45-50 at% Al alloy at 300-500 C — so the…
 - **LC-0013** (open, 2026-10-27, score 7/6/3): Transfer the photographic industry's closed-loop free-halide-activity control (constant pAg/pBr double-jet precipitation, with ion activity as the regulated variable) to polar antisolvent/LARP crystallization of CsPbX3 perovskite nanocryst…
 - **LC-0006** (open, 2026-10-22, score 7/5/3): Gamma-TiAl may have a hot-salt stress-corrosion-cracking (HSSCC) onset temperature below the ~260-290 C "floor" assumed from the 1962-72 Ti-alloy corpus, because the alumina scale that Ondrejcin (NASA CR-1133, 1968) identified as a catalyt…
@@ -48,4 +49,4 @@ Slash-separated numbers are ONE SCORE PER VERIFIER, out of 10 — not a fraction
 - **LC-0005** (open, 2026-10-20, score 6): Calcium phosphate (apatite / amorphous calcium phosphate) has apparently never been tested as an atmospheric ice-nucleating phase, although the insect-cryobiology literature names insoluble calcium-phosphate crystalloid deposits as a disti…
 - **LC-0001** (rejected, 2026-10-20, score 5): Erdos problem #634 (which N permit a triangle to be cut into N congruent triangles) is still listed open, but a July 2026 arXiv preprint fully settles the prime case — including the N=19 case the problem page explicitly calls out.
 
-Lead content last changed 2026-10-29 01:58 UTC. Do not hand-edit; see scripts/build_site.py.
+Lead content last changed 2026-11-18 06:15 UTC. Do not hand-edit; see scripts/build_site.py.

@@ -4,7 +4,7 @@ Consolidated public ledger of surviving leads from the Literature Comb project �
 
 | Field | |
 |---|---|
-| Last updated | 2026-10-29 01:58 UTC |
+| Last updated | 2026-11-18 06:15 UTC |
 | Public site | https://betsyisaac.github.io/literature-comb-ledger/ |
 | Maintainer | [@betsyisaac](https://github.com/betsyisaac) |
 | Per-contributor source ledgers | https://github.com/bambamramfan/literature-comb |
@@ -15,6 +15,7 @@ Consolidated public ledger of surviving leads from the Literature Comb project �
 
 | ID | Date added | Status | Headline | Old source | Modern problem | Cheapest next check | Verifier notes |
 |---|---|---|---|---|---|---|---|
+| [LC-0014](leads/LC-0014.md) | 2026-11-12 | open | In 1915 Curtis showed that sunlight-aged ebonite (hard rubber, roughly 30 wt% sulfur) loses its low-humidity surface-resistivity plateau because light plus air… | Curtis HL, "Insulating properties of solid dielectrics," Bulletin of the Bureau… | Inverse vulcanisation (IV) polymers — made from elemental sulfur plus olefins s… | About 2-4 weeks and under USD 300-500 in consumables, given access to an fA-cla… | Upstream entry dated 2026-11-12, scored 6/6/5 with 0 of 3 verifiers refuting. All three verifiers independently read Curtis 1915 and confir… |
 | [LC-0012](leads/LC-0012.md) | 2026-10-27 | open | On gamma-TiAl the 1969 fluoride-inhibits-hot-salt-SCC result may invert — because the surface fluoride that strips as volatile TiF4 at ~284 C on low-Al titaniu… | R. S. Ondrejcin, "Chlorine Gas and Fluoride Ion in Hot-Salt Stress Corrosion Cr… | The modern "fluorine effect" / halogen-effect literature on gamma-TiAl (HF dip,… | Before any bench spending, send one email to Mathias Galetz / Alexander Donchev… | Upstream entry dated 2026-10-26, scored 7/6/2 (one of three verifiers refuted). The lead's own stated label is "sign test," not mitigation… |
 | [LC-0013](leads/LC-0013.md) | 2026-10-27 | open | Transfer the photographic industry's closed-loop free-halide-activity control (constant pAg/pBr double-jet precipitation, with ion activity as the regulated va… | L. T. Finnicum, S. H. Munger, D. P. Novak, "Method of preparing silver halide e… | Modern halide perovskite nanocrystal synthesis (LARP and hot-injection CsPbX3)… | Establish whether a halide ion-selective electrode gives a usable Nernstian res… | Upstream entry dated 2026-10-26, scored 7/6/3 (one of three verifiers refuted). Framed as a reproducibility instrument transfer, not a new… |
 | [LC-0006](leads/LC-0006.md) | 2026-10-22 | open | Gamma-TiAl may have a hot-salt stress-corrosion-cracking (HSSCC) onset temperature below the ~260-290 C "floor" assumed from the 1962-72 Ti-alloy corpus, becau… | Ondrejcin, R. S., and Louthan, M. R. Jr., "Role of Hydrogen Chloride in Hot-Sal… | Modern HSSCC literature (including Dye-group work, e.g. arXiv:2009.10567 and D2… | Two paper + bench steps BEFORE any SCC rig. (a) Interlibrary-loan Kirk-Othmer 1… | Verifiers in the upstream ledger independently fetched both primary copies of CR-1133 (NTRS and sti.srs.gov DP(NASA)-1130), extracted the t… |
@@ -30,4 +31,4 @@ Consolidated public ledger of surviving leads from the Literature Comb project �
 | [LC-0001](leads/LC-0001.md) | 2026-10-20 | rejected | Erdos problem #634 (which N permit a triangle to be cut into N congruent triangles) is still listed open, but a July 2026 arXiv preprint fully settles the prim… | Erdos problem #634, erdosproblems.com, repo data/problems.yaml listing #634 as… | M. Beeson, "Tiling a triangle into a prime number of congruent triangles", arXi… | Read the Erdos-problems forum thread for #634 and the repo issues to confirm th… | Beeson's July 2026 preprint, "Tiling a triangle into a prime number of congruent triangles" (arXiv:2607.23453), proves that for prime N, a… |
 | [EXAMPLE](leads/EXAMPLE.md) | 1900-01-01 | example | TEMPLATE FIELD. Replace with one clear sentence describing the actual candidate connection. This whole file is a template, not a lead. | TEMPLATE FIELD. Replace with the full citation + a working link (DOI preferred,… | TEMPLATE FIELD. Replace with the full citation + a working link to the MODERN s… | TEMPLATE FIELD. Replace with the single cheapest concrete next check a qualifie… | **This file exists to show the shape a real entry takes — file structure, frontmatter fields, body prose — not to describe anything real.**… |
 
-<!-- content-sha256: 0fc2c68c06c760f8ff5ea423175f8caedf57910d3c20cbc29bb497ca56079c5c -->
+<!-- content-sha256: 6d147703501d2764f23940ebf60e94b5577f424c606a24684ac91cb6ff4adf26 -->
