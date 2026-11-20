@@ -7,6 +7,21 @@ complete result, not a gap.
 
 ---
 
+## 2026-11-20 (session ae77e48b)
+
+Consistency: leads/ == leads.csv == Sheet, OK (ref 1617d2af6599; counts
+lead_files=15, leads_csv=15, sheet=15; docs_leads_json=14 is the derived
+site-build artefact).
+
+No open PRs gating. Read 1 contributor ledger (`bambamramfan/surviving.md`).
+Upstream unchanged since last run (still at d22cfa4c). 0 new / 0 renamed /
+0 changed / 0 vanished. No new or updated sheet comments (3 total threads,
+all already handled).
+
+Nothing to promote, flip, or reply to. Bookkeeping-only commit.
+
+---
+
 ## 2026-11-19 (session 837c4630)
 
 Consistency: leads/ == leads.csv == Sheet, OK (ref 98c5cf68f406; counts
