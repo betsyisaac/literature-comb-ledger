@@ -7,6 +7,25 @@ complete result, not a gap.
 
 ---
 
+## 2026-11-28 (session 29f9569d)
+
+Consistency: leads/ == leads.csv == Sheet, OK (ref 5fbe5e3911fb; counts
+lead_files=15, leads_csv=15, sheet=15; docs_leads_json=14 is the derived
+site-build artefact).
+
+No open PRs gating. Read 1 contributor ledger (`bambamramfan/surviving.md`).
+Upstream unchanged since last run (still at d22cfa4c). 0 new / 0 renamed /
+0 changed / 0 vanished.
+
+Comment feed: first fetch attempt timed out (curl exit 28, same transient
+as 2026-11-26); second attempt succeeded and returned 3 total threads with
+0 new/updated. Not escalating — one retry cleared it.
+
+Nothing to promote. Bookkeeping-only commit (heartbeat +
+promotion-state.json refresh).
+
+---
+
 ## 2026-11-27 (session 63348cf1)
 
 Consistency: leads/ == leads.csv == Sheet, OK (ref e9c59969af03; counts
